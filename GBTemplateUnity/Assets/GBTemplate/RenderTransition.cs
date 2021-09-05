@@ -22,11 +22,11 @@ public class RenderTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.F11))
         {
             StartCoroutine(FadeTransition());
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
             ResetColourCoords();
         }
