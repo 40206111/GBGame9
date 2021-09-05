@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &876183970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5476227273593717722, guid: a262a800a1494554ea095e3d00bd19b6, type: 3}
+  m_PrefabInstance: {fileID: 5476227273806879725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &876183972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876183970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492b0569b1f59004e9cc782552b3b548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeTime: 1
+  PaletteMat: {fileID: 2100000, guid: 2cdbe26976888bf42a3d3584da8a8ce5, type: 2}
 --- !u!1 &1049625188
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +527,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 246d14f29085aed42a8a4268f9c53407, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f135822ceadb0b4594048a4082355d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
