@@ -47,7 +47,7 @@ public class RenderTransition : MonoBehaviour
         float divTime = FadeTime / colours;
         int currentColour = 0;
 
-        while (elapsed < FadeTime)
+        while (elapsed < FadeTime || currentColour < ColourCoords.Length)
         {
 
             int colCheck = (int)(elapsed / divTime);
