@@ -12,6 +12,7 @@ public class DebugConsole : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("reading from console");
             ParseInput(ConsoleInput.text);
             ConsoleInput.text = "";
         }
