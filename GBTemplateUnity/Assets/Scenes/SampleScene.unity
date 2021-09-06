@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeTime: 1
+  ShaderFadeTime: 0.5
   PaletteMat: {fileID: 2100000, guid: 2cdbe26976888bf42a3d3584da8a8ce5, type: 2}
 --- !u!1 &1049625188
 GameObject:
