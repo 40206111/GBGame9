@@ -1,22 +1,46 @@
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
+using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DebugConsole : MonoBehaviour
 {
     [SerializeField]
     InputField ConsoleInput;
+    EventSystem myEventSystem;
+
+    private void Awake()
+    {
+        myEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(SelectConsole());
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("reading from console");
+            Debug.Log($"reading {ConsoleInput.text} from console");
             ParseInput(ConsoleInput.text);
             ConsoleInput.text = "";
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            StartCoroutine(SelectConsole(toggle: true));
+        }
+    }
+
+    IEnumerator SelectConsole(bool toggle = false)
+    {
+        bool dontSelect = !(toggle && myEventSystem.currentSelectedGameObject == ConsoleInput.gameObject);
+        myEventSystem.SetSelectedGameObject(null);
+        yield return null;
+        if (dontSelect)
         {
             ConsoleInput.Select();
         }
@@ -50,6 +74,8 @@ public class DebugConsole : MonoBehaviour
                 DebugMenuController.Instance.SetGameSpeed(0);
                 break;
         }
+
+        StartCoroutine(SelectConsole());
     }
 
     void SetGameSpeed(string input)
