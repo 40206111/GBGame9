@@ -55,6 +55,10 @@ public class DebugConsole : MonoBehaviour
     void SetGameSpeed(string input)
     {
         DebugMenuController.Instance.LastGameSpeed = float.Parse(input);
+        if (DebugMenuController.Instance.GameSpeed != 0)
+        {
+            DebugMenuController.Instance.SetGameSpeed(DebugMenuController.Instance.LastGameSpeed);
+        }
     }
 }
 #endif
