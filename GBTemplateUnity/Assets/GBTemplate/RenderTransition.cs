@@ -6,9 +6,12 @@ public class RenderTransition : MonoBehaviour
 {
     Vector2[] ColourCoords = new Vector2[] { new Vector2(0.2f, 0.0f), new Vector2(0.4f, 0.0f), new Vector2(0.6f, 0.0f), new Vector2(0.8f, 0.0f) };
     string OutColourStringBase = "_OutCol";
+    string TransProgString = "_TransProgress";
 
     [SerializeField]
     float FadeTime = 1.0f;
+    [SerializeField]
+    float ShaderFadeTime = 1.0f;
 
     [SerializeField]
     Material PaletteMat;
@@ -30,6 +33,8 @@ public class RenderTransition : MonoBehaviour
         {
             ResetColourCoords();
         }
+
+        PaletteMat.SetFloat(TransProgString, Mathf.Abs(((Time.time * (1.0f / ShaderFadeTime)) % 4.0f) - 2.0f) - 1.0f); // Mathf.Sin(Time.time * (1.0f / ShaderFadeTime) * Mathf.PI * 0.5f));
     }
 
     void ResetColourCoords()
