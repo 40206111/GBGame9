@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: OpeningMenu
+    uniqueID: 2467882793
+    locked: 0
+  - name: OpeningPressStart
+    uniqueID: 2365578343
+    locked: 0
