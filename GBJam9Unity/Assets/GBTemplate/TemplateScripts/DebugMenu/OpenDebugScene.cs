@@ -6,7 +6,10 @@ public class OpenDebugScene : MonoBehaviour
 {
     void Awake()
     {
-        SceneManager.LoadSceneAsync("DebugScene", LoadSceneMode.Additive);
+        if (!SceneManager.GetSceneByName("DebugScene").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("DebugScene", LoadSceneMode.Additive);
+        }
     }
 }
 #endif

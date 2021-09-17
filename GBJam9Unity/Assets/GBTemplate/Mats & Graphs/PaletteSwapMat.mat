@@ -141,7 +141,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TransProgress: -0.6308594
+    - _TransProgress: -0.0001487732
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
