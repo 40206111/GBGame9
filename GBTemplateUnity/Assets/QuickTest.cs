@@ -32,6 +32,6 @@ public class QuickTest : MonoBehaviour
 
     IEnumerator TextTestCoroutine()
     {
-        yield return TBF.PrintTextAndWait("Here is a sizable piece of text so that the progress through the dialogue may better be tracked. It's unlikely that much more than this will be needed, but we'll add a few more words just in case.");
+        yield return TBF.PrintTextAndWait("Here is a sizable piece of text so that the progress through the dialogue may better be tracked. Aaekghaeiugwefilaaeiugaeuwhfsfaeaiefua. It's unlikely that much more than this will be needed, but we'll add a few more words just in case.");
     }
 }
