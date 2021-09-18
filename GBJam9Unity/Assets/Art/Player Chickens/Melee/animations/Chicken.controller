@@ -555,6 +555,58 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-326263288047784038
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage right walk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 762e6a9fb7f2d7d46a08ef40eea3784d, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-20128593559360619
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: front idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 9c96a22762cac8e47842117f68ffeffe, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -574,7 +626,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: hit
     m_Type: 9
@@ -592,6 +644,42 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Mage
+    m_StateMachine: {fileID: 7218341088197220300}
+    m_Mask: {fileID: 0}
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 5668053855927509887}
+      m_Motion: {fileID: 7400000, guid: 00681446b596bdc41b63f50a81497b17, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -3619849842416282807}
+      m_Motion: {fileID: 7400000, guid: 9c96a22762cac8e47842117f68ffeffe, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -1927260306095481563}
+      m_Motion: {fileID: 7400000, guid: 5b7521872912d2144a77cb19c2803d54, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 6587711157295072981}
+      m_Motion: {fileID: 7400000, guid: 63932bd6bbbf3514b91bb59e828e2c82, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -8825164493279765184}
+      m_Motion: {fileID: 7400000, guid: d1c61260b269bf84a9bf239c2a836ec9, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 7086294780324606954}
+      m_Motion: {fileID: 7400000, guid: 35802b5bbfb90684eb8421a14e68960d, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 4584871443819759488}
+      m_Motion: {fileID: 7400000, guid: 39266459febf6e043a720deaae05f2e9, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -8616596008109538709}
+      m_Motion: {fileID: 7400000, guid: 762e6a9fb7f2d7d46a08ef40eea3784d, type: 2}
+    m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: 0
+    m_DefaultWeight: 1
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
@@ -643,6 +731,58 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &2460904641054289177
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage spin
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 524b2576d3d616143b6a1c0e22572d9e, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &4561589546902881712
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage back idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 5b7521872912d2144a77cb19c2803d54, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &4584871443819759488
 AnimatorState:
   serializedVersion: 6
@@ -670,6 +810,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &5256013335885616616
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage left walk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 35802b5bbfb90684eb8421a14e68960d, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &5668053855927509887
 AnimatorState:
   serializedVersion: 6
@@ -691,6 +857,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: dbe6e6b94663a964d935ec34922ab844, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &5847613207912076268
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage back walk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: d1c61260b269bf84a9bf239c2a836ec9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -817,6 +1009,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &6961267523143464914
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage right idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 63932bd6bbbf3514b91bb59e828e2c82, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &7086294780324606954
 AnimatorState:
   serializedVersion: 6
@@ -844,6 +1062,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1107 &7218341088197220300
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mage
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: -20128593559360619}
+    m_Position: {x: 130, y: 210, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8353441322655961734}
+    m_Position: {x: 540, y: 200, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: -110, y: 230, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: -20128593559360619}
 --- !u!1102 &7461503142901218195
 AnimatorState:
   serializedVersion: 6
@@ -903,28 +1146,28 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3619849842416282807}
-    m_Position: {x: -300, y: 340, z: 0}
+    m_Position: {x: -810, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6587711157295072981}
-    m_Position: {x: 40, y: 170, z: 0}
+    m_Position: {x: -620, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1927260306095481563}
-    m_Position: {x: -300, y: 60, z: 0}
+    m_Position: {x: -810, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5668053855927509887}
-    m_Position: {x: -450, y: 160, z: 0}
+    m_Position: {x: -1020, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7086294780324606954}
-    m_Position: {x: -680, y: 300, z: 0}
+    m_Position: {x: -1040, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4584871443819759488}
-    m_Position: {x: -60, y: 390, z: 0}
+    m_Position: {x: -810, y: -470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8616596008109538709}
-    m_Position: {x: 230, y: 280, z: 0}
+    m_Position: {x: -360, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8825164493279765184}
-    m_Position: {x: -110, y: -40, z: 0}
+    m_Position: {x: -820, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6159760770434747923}
     m_Position: {x: 440, y: 560, z: 0}
@@ -955,6 +1198,27 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -2967014581797983618}
     m_Position: {x: -810, y: 710, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6961267523143464914}
+    m_Position: {x: -775, y: 775, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 4561589546902881712}
+    m_Position: {x: -740, y: 840, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5256013335885616616}
+    m_Position: {x: -705, y: 905, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 9185121660238496276}
+    m_Position: {x: -670, y: 970, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -326263288047784038}
+    m_Position: {x: -635, y: 1035, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5847613207912076268}
+    m_Position: {x: -600, y: 1100, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 2460904641054289177}
+    m_Position: {x: -565, y: 1165, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -4389514087501118171}
@@ -974,9 +1238,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -180, y: 170, z: 0}
-  m_EntryPosition: {x: -440, y: 10, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_AnyStatePosition: {x: -140, y: -430, z: 0}
+  m_EntryPosition: {x: -1070, y: -410, z: 0}
+  m_ExitPosition: {x: 320, y: 0, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 5668053855927509887}
 --- !u!1101 &7973793036228890947
@@ -1004,3 +1268,55 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &8353441322655961734
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Left Idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 00681446b596bdc41b63f50a81497b17, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &9185121660238496276
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mage front walk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 39266459febf6e043a720deaae05f2e9, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
