@@ -385,6 +385,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-2967014581797983618
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: dead
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 134223fc8e68d6f439215d3a2f6e1bfc, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-2773362613504237115
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -548,13 +574,13 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: hit
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
@@ -916,16 +942,19 @@ AnimatorStateMachine:
     m_Position: {x: 340, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7461503142901218195}
-    m_Position: {x: -670, y: 490, z: 0}
+    m_Position: {x: -790, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5180927493691811217}
-    m_Position: {x: -635, y: 555, z: 0}
+    m_Position: {x: -870, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5565788965595852165}
-    m_Position: {x: -600, y: 620, z: 0}
+    m_Position: {x: -760, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 245882091467102943}
-    m_Position: {x: -565, y: 685, z: 0}
+    m_Position: {x: -800, y: 640, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2967014581797983618}
+    m_Position: {x: -810, y: 710, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -4389514087501118171}

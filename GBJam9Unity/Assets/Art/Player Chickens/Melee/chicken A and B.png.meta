@@ -50,6 +50,9 @@ TextureImporter:
   - first:
       213: -1865490520834004942
     second: chicken A and B_15
+  - first:
+      213: -4737956066019444524
+    second: chicken A and B_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -482,6 +485,27 @@ TextureImporter:
       bones: []
       spriteID: 238a4dd41427c16e0800000000000000
       internalID: -1865490520834004942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken A and B_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8f08b8f066f3eb0800000000000000
+      internalID: -4737956066019444524
       vertices: []
       indices: 
       edges: []
