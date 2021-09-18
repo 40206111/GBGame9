@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 432475833
+    locked: 0
+  - name: world stuff
+    uniqueID: 510683801
+    locked: 0
+  - name: Player
+    uniqueID: 1037563207
+    locked: 0
   - name: OpeningMenu
     uniqueID: 2467882793
     locked: 0
