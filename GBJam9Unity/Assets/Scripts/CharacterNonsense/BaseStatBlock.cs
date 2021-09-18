@@ -13,7 +13,7 @@ public class BaseStatBlock : ScriptableObject
     public float MagicResistance = 0;
     public float Energy = 0;
 
-    protected virtual void Reset()
+    public virtual void Reset()
     {
         MaxHealth = 0;
         PhysicalDamage = 0;
@@ -35,15 +35,14 @@ public class BaseStatBlock : ScriptableObject
 
     public static BaseStatBlock operator +(BaseStatBlock a, BaseStatBlock b)
     {
-        return new BaseStatBlock
-        {
-            MaxHealth = a.MaxHealth + b.MaxHealth,
-            PhysicalDamage = a.PhysicalDamage + b.PhysicalDamage,
-            MagicDamage = a.MagicDamage + b.MagicDamage,
-            PhysicalResistance = a.PhysicalResistance + b.PhysicalResistance,
-            MagicResistance = a.MagicResistance + b.MagicResistance,
-            Energy = a.Energy + b.Energy
-        };
+        BaseStatBlock outBlock = CreateInstance<BaseStatBlock>();
+        outBlock.MaxHealth = a.MaxHealth + b.MaxHealth;
+        outBlock.PhysicalDamage = a.PhysicalDamage + b.PhysicalDamage;
+        outBlock.MagicDamage = a.MagicDamage + b.MagicDamage;
+        outBlock.PhysicalResistance = a.PhysicalResistance + b.PhysicalResistance;
+        outBlock.MagicResistance = a.MagicResistance + b.MagicResistance;
+        outBlock.Energy = a.Energy + b.Energy;
+        return outBlock;
     }
 
     public static BaseStatBlock operator *(BaseStatBlock a, float val)
@@ -52,14 +51,13 @@ public class BaseStatBlock : ScriptableObject
     }
     public static BaseStatBlock operator *(float val, BaseStatBlock a)
     {
-        return new BaseStatBlock
-        {
-            MaxHealth = val * a.MaxHealth,
-            PhysicalDamage = val * a.PhysicalDamage,
-            MagicDamage = val * a.MagicDamage,
-            PhysicalResistance = val * a.PhysicalResistance,
-            MagicResistance = val * a.MagicResistance,
-            Energy = val * a.Energy
-        };
+        BaseStatBlock outBlock = CreateInstance<BaseStatBlock>();
+        outBlock.MaxHealth = val * a.MaxHealth;
+        outBlock.PhysicalDamage = val * a.PhysicalDamage;
+        outBlock.MagicDamage = val * a.MagicDamage;
+        outBlock.PhysicalResistance = val * a.PhysicalResistance;
+        outBlock.MagicResistance = val * a.MagicResistance;
+        outBlock.Energy = val * a.Energy;
+        return outBlock;
     }
 }

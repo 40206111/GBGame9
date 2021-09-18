@@ -9,12 +9,13 @@ public class EquiptmentLayout
     public EquiptmentSlot LegSlot = new EquiptmentSlot { RequiredType = eItemType.legWear };
     public EquiptmentSlot FootSlot = new EquiptmentSlot { RequiredType = eItemType.footWear };
     public EquiptmentSlot WeaponSlot = new EquiptmentSlot { RequiredType = eItemType.weapon };
-    public List<EquiptmentSlot> TrincketSlots = new List<EquiptmentSlot>() {
+    public List<EquiptmentSlot> TrinketSlots = new List<EquiptmentSlot>() {
         new EquiptmentSlot { RequiredType = eItemType.trinket},
         new EquiptmentSlot { RequiredType = eItemType.trinket},
         new EquiptmentSlot { RequiredType = eItemType.trinket}};
 
-    public List<EquiptmentSlot> GetAllItems()
+
+    public List<EquiptmentSlot> GetAllEquipped()
     {
         List<EquiptmentSlot> outList = new List<EquiptmentSlot>();
 
@@ -23,12 +24,26 @@ public class EquiptmentLayout
         CheckAndAdd(LegSlot, ref outList);
         CheckAndAdd(FootSlot, ref outList);
         CheckAndAdd(WeaponSlot, ref outList);
-        foreach (EquiptmentSlot es in TrincketSlots)
+        foreach (EquiptmentSlot es in TrinketSlots)
         {
             CheckAndAdd(es, ref outList);
         }
 
         return outList;
+    }
+
+    public EquiptmentSlot GetEquiptmentSlot(eItemType slot, int trinketSlot = 0)
+    {
+        return slot switch
+        {
+            eItemType.headPiece => HeadSlot,
+            eItemType.chestPiece => BodySlot,
+            eItemType.legWear => LegSlot,
+            eItemType.footWear => FootSlot,
+            eItemType.weapon => WeaponSlot,
+            eItemType.trinket => TrinketSlots[Mathf.Clamp(trinketSlot, 0, TrinketSlots.Count)],
+            _ => HeadSlot,
+        };
     }
 
     private void CheckAndAdd(EquiptmentSlot es, ref List<EquiptmentSlot> list)

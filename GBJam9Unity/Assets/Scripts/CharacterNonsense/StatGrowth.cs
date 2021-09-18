@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/StatGrowth", fileName = "StatGrowth")]
 public class StatGrowth : BaseStatBlock
 {
-    protected override void Reset()
+    public override void Reset()
     {
         MaxHealth = 3;
         PhysicalDamage = 1;

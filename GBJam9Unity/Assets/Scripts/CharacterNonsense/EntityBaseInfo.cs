@@ -7,7 +7,7 @@ public class EntityBaseInfo : BaseStatBlock
 {
     public string Name = "";
 
-    protected override void Reset()
+    public override void Reset()
     {
         MaxHealth = 10;
         PhysicalDamage = 1;

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/MagicEnemyEBI", fileName = "MagicEnemyEBI")]
 public class MagicEnemyEBI : EntityBaseInfo
 {
-    protected override void Reset()
+    public override void Reset()
     {
         Name = "Magician";
         MaxHealth = 5;
