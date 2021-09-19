@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EntityMover : MonoBehaviour
 {
+
     Rigidbody2D Rigidbody;
     Vector2 TravelDirection;
     Vector2Int FacingDirection = Vector2Int.down;
-    float MaxSpeed = 1.0f;
-    float Acceleration = 1.0f;
+    float MaxSpeed = 2.0f;
+    float Acceleration = 4.0f;
     float Deceleration = 4.0f;
 
     readonly Dictionary<Vector2Int, int> FacingValues = new Dictionary<Vector2Int, int>()
         { { Vector2Int.up, 0 }, { Vector2Int.right, 1 }, { Vector2Int.down, 2 }, { Vector2Int.left, 3 } };
+
+
+    private void Awake()
+    {
+        Rigidbody = GetComponent<Rigidbody2D>();
+        Acceleration = 5.0f * MaxSpeed;
+        Deceleration = 2.0f * Acceleration;
+    }
 
     private Vector2Int CalculateSimpleFacing(Vector2 dir)
     {
@@ -49,6 +59,11 @@ public class EntityMover : MonoBehaviour
 
     public void SetTravelDirection(Vector2 dir)
     {
+        if (dir == TravelDirection)
+        {
+            return;
+        }
+
         if (dir.sqrMagnitude > 1.0f)
         {
             dir = dir.normalized;
@@ -67,9 +82,10 @@ public class EntityMover : MonoBehaviour
             float timeDeceleration = Time.fixedDeltaTime * Deceleration;
             Vector2 newAccel = Vector2.zero;
             Vector2 perpTV = Vector2.Perpendicular(targetVelocity).normalized;
+            Vector2 diffVel = targetVelocity - currentVelocity;
 
             Vector2 decelVec = Vector2.zero;
-            if (Vector2.Dot(currentVelocity, targetVelocity) < 0)
+            if (Vector2.Dot(currentVelocity, diffVel) < 0)
             {
                 decelVec = -currentVelocity;
             }
@@ -93,8 +109,13 @@ public class EntityMover : MonoBehaviour
 
             newAccel = decelVec + Acceleration * spareAccel * Time.fixedDeltaTime * TravelDirection;
 
+            currentVelocity += newAccel;
+            if (currentVelocity.sqrMagnitude > MaxSpeed * MaxSpeed)
+            {
+                currentVelocity = MaxSpeed * currentVelocity.normalized;
+            }
 
-            Rigidbody.velocity += newAccel;
+            Rigidbody.velocity = currentVelocity;
         }
     }
 }
