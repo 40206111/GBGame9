@@ -6,19 +6,7 @@ public class MoveToNextScene : MonoBehaviour
 {
     public void LoadNextScene()
     {
-        StartCoroutine(WaitWhileLoadNextScene());
+        GameManager.Instance.LoadNextScene(eTransitionEnums.Petsstep, 0.5f);
     }
 
-    IEnumerator WaitWhileLoadNextScene()
-    {
-        int thisScene = SceneManager.GetActiveScene().buildIndex;
-        var loadingScene = SceneManager.LoadSceneAsync(thisScene + 1, LoadSceneMode.Additive);
-
-        while (!loadingScene.isDone)
-        {
-            yield return null;
-        }
-
-        SceneManager.UnloadSceneAsync(thisScene);
-    }
 }

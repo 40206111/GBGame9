@@ -16,10 +16,17 @@ public class RenderTransition : MonoBehaviour
     [SerializeField]
     Material PaletteMat;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField]
+    List<Texture> TransTextures;
 
+    bool Running;
+
+    public delegate void FinishedTransition();
+    public static FinishedTransition FinishedTransitionDel;
+
+    private void Awake()
+    {
+        PaletteMat.SetFloat(TransProgString, 0);
     }
 
     // Update is called once per frame
@@ -34,10 +41,55 @@ public class RenderTransition : MonoBehaviour
             ResetColourCoords();
         }
 
-        PaletteMat.SetFloat(TransProgString, Mathf.Abs(((Time.time * (1.0f / ShaderFadeTime)) % 4.0f) - 2.0f) - 1.0f); // Mathf.Sin(Time.time * (1.0f / ShaderFadeTime) * Mathf.PI * 0.5f));
     }
 
-    void ResetColourCoords()
+    IEnumerator RunTransition(Texture transTex, float fadeTime, bool fadeIn, bool asToggle)
+    {
+        while (Running)
+        {
+            yield return null;
+        }
+        Running = true;
+        GameManager.Instance.ChangeGameState(GameManager.eGameState.Paused);
+        PaletteMat.SetTexture("_TransitionTexture", transTex);
+        ShaderFadeTime = fadeTime;
+
+        var progress = PaletteMat.GetFloat(TransProgString);
+        float startTime = Time.time;
+
+        if (asToggle ||
+            (!(fadeIn && progress <= 0 ||
+            !fadeIn && progress >= 1)))
+        {
+            int end = fadeIn ? 0 : 1;
+            end = asToggle ? 1 - (int)progress : end;
+            int start = 1 - end;
+            while ((end == 1 && progress < 1) || (end == 0 && progress > 0))
+            {
+                progress = start + (((Time.time - startTime) / ShaderFadeTime) * (end - start)); //Mathf.Abs(((Time.time * (1.0f / ShaderFadeTime)) % 4.0f) - 2.0f) - 1.0f;
+                progress = Mathf.Clamp(progress, 0.0f, 1.0f);
+                PaletteMat.SetFloat(TransProgString, progress);
+                yield return null;
+            }
+            PaletteMat.SetFloat(TransProgString, end);
+        }
+
+        GameManager.Instance.ChangeGameState(GameManager.eGameState.Playing);
+        Running = false;
+        if (FinishedTransitionDel != null)
+        {
+            FinishedTransitionDel.Invoke();
+        }
+    }
+
+    public void RunTransition(eTransitionEnums transition, float transTime, bool fadeIn, bool asToggle, FinishedTransition method = null)
+    {
+        FinishedTransitionDel += method;
+        var transTex = TransTextures[(int)transition];
+        StartCoroutine(RunTransition(transTex, transTime, fadeIn, asToggle));
+    }
+
+    public void ResetColourCoords()
     {
         for (int i = 0; i < ColourCoords.Length; ++i)
         {

@@ -1,4 +1,5 @@
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -73,9 +74,47 @@ public class DebugConsole : MonoBehaviour
                 Debug.Log($"pausing game");
                 DebugMenuController.Instance.SetGameSpeed(0);
                 break;
+            case "fade":
+                if (parts.Length == 2)
+                {
+                    ParseFadeInstructions(parts[1], "1");
+                }
+                else if (parts.Length == 3)
+                {
+                    ParseFadeInstructions(parts[1], parts[2]);
+                }
+                else
+                {
+                    Debug.LogError("Fade GradEnumName/GradIndex GradTime(Optional)");
+                }
+                break;
         }
 
         StartCoroutine(SelectConsole());
+    }
+
+    void ParseFadeInstructions(string type, string time)
+    {
+        eTransitionEnums transition;
+
+        if (!Enum.TryParse(type, out transition))
+        {
+            if (int.TryParse(type, out int enumInt))
+            {
+                transition = (eTransitionEnums)enumInt;
+            }
+            else
+            {
+                Debug.LogError($"Fade {type} does not exist");
+            }
+        }
+
+        float.TryParse(time, out float transTime);
+
+        Debug.Log($"running {transition.ToString()} for {transTime} seconds");
+        GameManager.Instance.QueueTransition(transition, transTime);
+        GameManager.Instance.TransController.RunTransition(true, asToggle: true);
+
     }
 
     void SetGameSpeed(string input)
