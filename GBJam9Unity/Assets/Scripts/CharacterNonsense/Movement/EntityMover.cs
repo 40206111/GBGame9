@@ -5,13 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EntityMover : MonoBehaviour
 {
-
+    [SerializeField]
+    Animator Animator;
     Rigidbody2D Rigidbody;
     Vector2 TravelDirection;
     Vector2Int FacingDirection = Vector2Int.down;
     float MaxSpeed = 2.0f;
     float Acceleration = 4.0f;
     float Deceleration = 4.0f;
+
+    int MovementLocks = 0;
 
     readonly Dictionary<Vector2Int, int> FacingValues = new Dictionary<Vector2Int, int>()
         { { Vector2Int.up, 0 }, { Vector2Int.right, 1 }, { Vector2Int.down, 2 }, { Vector2Int.left, 3 } };
@@ -22,6 +25,28 @@ public class EntityMover : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
         Acceleration = 5.0f * MaxSpeed;
         Deceleration = 2.0f * Acceleration;
+    }
+
+    public void AddMovementLock()
+    {
+        MovementLocks++;
+    }
+
+    public void RemoveMovementLock()
+    {
+        MovementLocks--;
+        if (MovementLocks < 0)
+        {
+            MovementLocks = 0;
+        }
+    }
+
+    public bool IsMovementLocked
+    {
+        get
+        {
+            return MovementLocks > 0;
+        }
     }
 
     private Vector2Int CalculateSimpleFacing(Vector2 dir)
@@ -70,7 +95,26 @@ public class EntityMover : MonoBehaviour
         }
         TravelDirection = dir;
 
-        FacingDirection = CalculateSimpleFacing(TravelDirection);
+        SetFacingDirection(CalculateSimpleFacing(TravelDirection));
+    }
+
+    private void SetFacingDirection(Vector2Int dir)
+    {
+        if(dir == Vector2Int.zero)
+        {
+            return;
+        }
+        if (!FacingValues.ContainsKey(dir))
+        {
+            dir = Vector2Int.down;
+        }
+        FacingDirection = dir;
+        Animator.SetInteger("Facing", FacingValues[dir]);
+    }
+
+    private void Update()
+    {
+        Animator.SetBool("Moving", !IsMovementLocked && Rigidbody.velocity.sqrMagnitude > 0.01f);
     }
 
     private void FixedUpdate()
