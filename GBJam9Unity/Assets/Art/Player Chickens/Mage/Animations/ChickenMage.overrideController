@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChickenMage
+  m_Controller: {fileID: 9100000, guid: a1aca477d7a904e49b974727f5ce4f5c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5bea4da6f6170a544957f9eb2c6d7f4d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9c96a22762cac8e47842117f68ffeffe, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dbe6e6b94663a964d935ec34922ab844, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 00681446b596bdc41b63f50a81497b17, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0188f2e5a8766b9408ec992943009294, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5b7521872912d2144a77cb19c2803d54, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c49f7541d1133dc47978a1408810fcec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d1c61260b269bf84a9bf239c2a836ec9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 16c59328a03e98d439740434639817cd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 39266459febf6e043a720deaae05f2e9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ed2acfec3712e744c8e2c3e94ff5bb38, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 35802b5bbfb90684eb8421a14e68960d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84267420d5117244f9ea383418cf4dad, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 762e6a9fb7f2d7d46a08ef40eea3784d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9951ccda33debb94d9e5becf50b56f92, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 63932bd6bbbf3514b91bb59e828e2c82, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bde2fd36f34b3df4ea104045ddcd0d62, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 524b2576d3d616143b6a1c0e22572d9e, type: 2}
