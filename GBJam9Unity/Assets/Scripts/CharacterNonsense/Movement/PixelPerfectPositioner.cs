@@ -40,9 +40,9 @@ public class PixelPerfectPositioner : MonoBehaviour
             yield return new WaitForEndOfFrame();
             if (Reposition)
             {
-                Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z + " ");
+                //Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z + " ");
                 transform.position = TruePosition;
-                Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z + " ");
+                //Debug.Log(transform.position.x + " " + transform.position.y + " " + transform.position.z + " ");
             }
         }
     }

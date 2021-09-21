@@ -36,6 +36,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButtonDown("AButton"))
         {
             Pcs.Attacker.DoAAttack();
+            Pcs.Actions.AButtonPushed();
         }
         else if (Input.GetButtonDown("BButton"))
         {
