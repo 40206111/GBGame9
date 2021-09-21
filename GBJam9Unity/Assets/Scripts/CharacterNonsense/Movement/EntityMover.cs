@@ -121,7 +121,7 @@ public class EntityMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 targetVelocity = TravelDirection * MaxSpeed;
+        Vector2 targetVelocity = MovementLocks > 0 ? Vector2.zero : TravelDirection * MaxSpeed;
         Vector2 currentVelocity = Rigidbody.velocity;
         if (targetVelocity != currentVelocity)
         {
