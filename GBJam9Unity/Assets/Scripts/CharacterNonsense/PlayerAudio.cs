@@ -7,6 +7,9 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] AudioClip Bawk;
     [SerializeField] float BawkTime;
     [SerializeField] AudioClip Hit;
+    [SerializeField] AudioClip Throw;
+    [SerializeField] AudioClip Roll;
+    [SerializeField] AudioClip Died;
     AudioSource ASource;
 
     private void Awake()
@@ -22,6 +25,20 @@ public class PlayerAudio : MonoBehaviour
     public void PlayHit()
     {
         StartCoroutine(PlaySound(Hit, 0));
+    }
+
+    public void PlayThrow()
+    {
+        StartCoroutine(PlaySound(Throw, 0));
+    }
+
+    public void PlayRoll()
+    {
+        StartCoroutine(PlaySound(Roll, 0));
+    }
+    public void PlayDied()
+    {
+        StartCoroutine(PlaySound(Died, 0));
     }
 
     IEnumerator<YieldInstruction> PlaySound(AudioClip clip, float time)

@@ -11,6 +11,8 @@ public class MenuItemManager : MonoBehaviour
     List<MenuItemBase> MenuItems = new List<MenuItemBase>();
     [SerializeField]
     RectTransform Arrow;
+    [SerializeField]
+    AudioSource AudioSource;
     Vector2 ArrowValues;
 
     // Start is called before the first frame update
@@ -50,6 +52,7 @@ public class MenuItemManager : MonoBehaviour
 
         if (Input.GetButtonDown("AButton"))
         {
+            AudioSource.Play();
             MenuItems[CurrentIndex].PerformAction();
         }
     }
