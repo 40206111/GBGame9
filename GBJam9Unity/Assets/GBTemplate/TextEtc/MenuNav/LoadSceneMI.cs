@@ -7,8 +7,13 @@ public class LoadSceneMI : MenuItemBase
 {
     [SerializeField]
     string SceneName;
+    [SerializeField]
+    eTransitionEnums Transition;
+    [SerializeField]
+    float FadeTime = 1;
+
     public override void PerformAction()
     {
-        SceneManager.LoadScene(SceneName);
+        GameManager.Instance.LoadSceneByName(SceneName, Transition, FadeTime);
     }
 }

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/GBTemplate/Scenes/StartScene.unity
     guid: 5798363c5175424428c0a29705ddb3b9
   - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 6d52cb1bcd5e18f468c82d9f172f1add
+  - enabled: 1
     path: Assets/GBTemplate/Scenes/DebugScene.unity
     guid: b22a4992d1edb5b489252f9f6e7623f0
   m_configObjects: {}

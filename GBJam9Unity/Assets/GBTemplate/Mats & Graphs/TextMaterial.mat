@@ -99,7 +99,7 @@ Material:
     m_Floats:
     - Vector1_0a2a0f65c88a46bb84820169de1f9680: 2
     - Vector1_1527b225e95149fe86f5bad6be266b27: 0
-    - Vector1_2135b3c2dbcf4d86990010880af126e2: 3
+    - Vector1_2135b3c2dbcf4d86990010880af126e2: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -114,6 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _IndentSize: 5
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

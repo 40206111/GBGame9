@@ -103,8 +103,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         QueueTransition(transition, fadeTime);
-        var index = SceneManager.GetSceneByName(sceneName).buildIndex;
-        StartCoroutine(LoadScene(index));
+        StartCoroutine(LoadScene(nextSceneString: sceneName));
     }
 
 
@@ -114,9 +113,11 @@ public class GameManager : MonoBehaviour
         LoadSceneNow = true;
     }
 
-    IEnumerator LoadScene(int nextScene, bool UnloadActiveScene = true)
+    IEnumerator LoadScene(int nextScene = -1, string nextSceneString = "", bool UnloadActiveScene = true)
     {
         TransController.RunTransition(fadeIn: false, method: WaitForTransistion);
+
+        bool haveSceneName = nextScene == -1;
 
         while (!LoadSceneNow)
         {
@@ -124,14 +125,24 @@ public class GameManager : MonoBehaviour
         }
         LoadSceneNow = false;
 
-        var loadingScene = SceneManager.LoadSceneAsync(ActiveSceneIndex + 1, LoadSceneMode.Additive);
+        AsyncOperation loadingScene;
+
+        if (haveSceneName)
+        {
+            loadingScene = SceneManager.LoadSceneAsync(nextSceneString, LoadSceneMode.Additive);
+        }
+        else
+        {
+            loadingScene = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        }
+
 
         while (!loadingScene.isDone)
         {
             yield return null;
         }
 
-        var newScene = SceneManager.GetSceneByBuildIndex(nextScene);
+        var newScene = haveSceneName ? SceneManager.GetSceneByName(nextSceneString) : SceneManager.GetSceneByBuildIndex(nextScene);
         Debug.Log($"Loaded Scene {newScene.name}");
         string sceneToUnload = "";
         if (UnloadActiveScene)

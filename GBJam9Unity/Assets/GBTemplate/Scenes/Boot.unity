@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 1377355802}
   - component: {fileID: 1377355803}
   - component: {fileID: 1377355804}
+  - component: {fileID: 1377355805}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerOffWaitTime: 1
-  PlaySplash: 1
+  PlaySplash: 0
 --- !u!114 &1377355803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,3 +284,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b56beaee177634446bb2831fffb03938, type: 3}
   - {fileID: 2800000, guid: b0a2b4fbf812249489f69953f8de2c15, type: 3}
   - {fileID: 2800000, guid: 730bc38fd80fd10428e334929a16f811, type: 3}
+--- !u!81 &1377355805
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377355800}
+  m_Enabled: 1
