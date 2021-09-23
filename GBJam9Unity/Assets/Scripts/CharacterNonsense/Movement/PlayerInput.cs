@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EntityMover), typeof(PlayerAttack))]
+[RequireComponent(typeof(EntityMover), typeof(PlayerActions), typeof(PlayerComponents))]
 public class PlayerInput : MonoBehaviour
 {
     PlayerComponents Pcs;
@@ -35,12 +35,11 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetButtonDown("AButton"))
         {
-            Pcs.Attacker.DoAAttack();
             Pcs.Actions.AButtonPushed();
         }
         else if (Input.GetButtonDown("BButton"))
         {
-            Pcs.Attacker.DoBAttack();
+            Pcs.Actions.BButtonPushed();
         }
     }
 }
