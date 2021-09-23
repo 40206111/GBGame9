@@ -88,7 +88,7 @@ public class TextBoxFiller : MonoBehaviour
                 if (newRowIndex == rowStartIndexes[rowStartIndexes.Count - 1])
                 {
                     newRowIndex = i;
-                    lastWhitespace = i-1; // Pretend current char is whitespace for the new line
+                    lastWhitespace = i - 1; // Pretend current char is whitespace for the new line
                 }
                 if (newRowIndex < chars.Length)
                 {
@@ -105,6 +105,10 @@ public class TextBoxFiller : MonoBehaviour
 
         // Create line list
         int lineCount = (int)(Text.rectTransform.rect.height / (((float)Text.fontSize) * Text.lineSpacing));
+        if (Text.rectTransform.rect.height >= -((Text.fontSize) * Text.lineSpacing) * (lineCount - 1) + Text.fontSize)
+        {
+            lineCount++;
+        }
         List<string> lines = new List<string>();
         for (int i = 0; i < lineCount; ++i)
         {
@@ -232,6 +236,10 @@ public class TextBoxFiller : MonoBehaviour
 
     private bool ContinueInputPressed()
     {
+        if (!GameManager.Instance.IsActiveInputTarget(GetInstanceID()))
+        {
+            return false;
+        }
         return Input.GetButtonDown("AButton");
     }
 }

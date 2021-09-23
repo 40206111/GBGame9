@@ -23,7 +23,10 @@ public class PlayerInput : MonoBehaviour
     void MoveUpdate()
     {
         Vector2 travelDir = Vector2.zero;
-        travelDir += new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (GameManager.Instance.NoInputTargets)
+        {
+            travelDir += new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
         if (travelDir.sqrMagnitude > 1.0f)
         {
             travelDir = travelDir.normalized;
@@ -33,6 +36,10 @@ public class PlayerInput : MonoBehaviour
 
     void AttackUpdate()
     {
+        if (!GameManager.Instance.NoInputTargets)
+        {
+            return;
+        }
         if (Input.GetButtonDown("AButton"))
         {
             Pcs.Actions.AButtonPushed();
