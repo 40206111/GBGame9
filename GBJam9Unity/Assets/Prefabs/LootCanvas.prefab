@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 4, y: 5, z: 4, w: 4}
+  m_Padding: {x: 4, y: 5, z: 4, w: 12}
   m_Softness: {x: 0, y: 0}
 --- !u!1001 &1614329111491236313
 PrefabInstance:

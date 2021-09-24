@@ -84,21 +84,22 @@ public class LootItemManager : MenuItemManager
         base.ChangeSelectedMenuItem(change);
 
         int difference = 0;
-        if (change < 0 && CurrentIndex < ItemsScrolled)
+        if ((change < 0 && CurrentIndex < ItemsScrolled) || (change > 0 && CurrentIndex == 0))
         {
             difference = CurrentIndex - ItemsScrolled;
         }
-        else if (change > 0 && CurrentIndex >= ItemsScrolled + VisibleEntries - 1)
+        else if ((change > 0 && CurrentIndex >= ItemsScrolled + VisibleEntries - 1)
+            || (change < 0 && CurrentIndex == MenuItems.Count - 1))
         {
             difference = CurrentIndex - (ItemsScrolled + VisibleEntries - 2);
         }
-        CurrentIndex += difference;
+        ItemsScrolled += difference;
         MoveTextHolder(EntryHeight * difference);
     }
 
     protected void MoveTextHolder(int amount)
     {
-        ItemHolder.Translate(Vector3.up * amount);
+        ItemHolder.anchoredPosition += (Vector2.up * amount);
     }
 
     public void RemoveMenuItem(MenuItemBase menuItem)

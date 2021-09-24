@@ -791,6 +791,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b638b27928b8154c91b26e8e8314f55, type: 2}
   - {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
   - {fileID: 11400000, guid: 3b638b27928b8154c91b26e8e8314f55, type: 2}
+  - {fileID: 11400000, guid: 24f1a9b8a5eef394199037e226010081, type: 2}
+  - {fileID: 11400000, guid: 15614e13e75482d48a72a4594e1d6e49, type: 2}
+  - {fileID: 11400000, guid: 8e241eb141447954b884bd64e53a6ffb, type: 2}
+  - {fileID: 11400000, guid: be20dccb6421fec49bfa213800ad843d, type: 2}
 --- !u!1001 &3092740450630314575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -878,6 +882,14 @@ PrefabInstance:
     - target: {fileID: 2378993140975638111, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
       propertyPath: m_Name
       value: LootCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572498258120461341, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887342298550171875, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
+      propertyPath: m_Padding.w
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7945437669951210377, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
       propertyPath: m_Pivot.x
