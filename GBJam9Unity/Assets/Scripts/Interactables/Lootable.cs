@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Lootable : MonoBehaviour,IInteractable
 {
+    [SerializeField]
     List<ItemDetails> Items = new List<ItemDetails>();
 
     public void RunInteraction()
     {
         // ~~~ open loot window
         // ~~~ print loot names
+        LootItemManager.Instance.Display(this);
     }
 
     public ItemDetails TakeItem(string itemName)
@@ -22,5 +24,10 @@ public class Lootable : MonoBehaviour,IInteractable
             return outItem;
         }
         return null;
+    }
+
+    public List<ItemDetails> GetItems()
+    {
+        return Items;
     }
 }

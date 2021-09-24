@@ -48,7 +48,7 @@ public class PlayerActions : MonoBehaviour
     private void ExecuteAInteraction(RaycastHit2D rayHit)
     {
         Debug.Log(rayHit.collider.name);
-
+        rayHit.collider.GetComponent<IInteractable>().RunInteraction();
     }
 
     private void ExecuteAAttack()
