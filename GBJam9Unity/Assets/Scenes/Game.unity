@@ -883,14 +883,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LootCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4572498258120461341, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
-      propertyPath: m_Maskable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887342298550171875, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
-      propertyPath: m_Padding.w
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 7945437669951210377, guid: a6b8c4ab80f6f9847ae7797f6dfbb4e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
