@@ -4,52 +4,95 @@ using UnityEngine;
 
 public class MenuItemManager : MonoBehaviour
 {
-    int _currentIndex = 0;
+    protected int _currentIndex = 0;
     [SerializeField]
-    bool MenuLoops = true;
+    protected bool MenuLoops = true;
     [SerializeField]
-    List<MenuItemBase> MenuItems = new List<MenuItemBase>();
+    protected List<MenuItemBase> MenuItems = new List<MenuItemBase>();
     [SerializeField]
-    RectTransform Arrow;
+    protected RectTransform Arrow;
     [SerializeField]
-    AudioSource AudioSource;
-    Vector2 ArrowValues;
+    protected AudioSource AudioSource;
+    protected Vector2 ArrowValues;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         ArrowValues = Arrow.anchoredPosition;
-        if(MenuItems.Count > 0)
+        if (MenuItems.Count > 0)
         {
-            MenuItems[0].IsHighlighted = true;
-            Arrow.SetParent(MenuItems[0].transform);
-            Arrow.localPosition = ArrowValues;
+            JustHighlight(0);
         }
     }
 
+    protected void JustHighlight(int index)
+    {
+        MenuItems[index].IsHighlighted = true;
+        Arrow.SetParent(MenuItems[index].transform);
+        Arrow.localPosition = Vector2.zero;
+    }
+
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
+    {
+        if (!GameManager.Instance.IsActiveInputTarget(GetInstanceID()))
+        {
+            return;
+        }
+        if(MenuItems.Count == 0)
+        {
+            return;
+        }
+        int change = GetChangeFromInput();
+        ChangeSelectedMenuItem(change);
+        CheckForAButton();
+    }
+
+    protected virtual void OnEnable()
+    {
+        GameManager.Instance.AddInputTarget(GetInstanceID());
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.RemoveInputTarget(GetInstanceID());
+    }
+
+    protected virtual void CleanUp()
+    {
+        _currentIndex = 0;
+        Arrow.SetParent(transform);
+        Arrow.localPosition = ArrowValues;
+    }
+
+    protected virtual int GetChangeFromInput()
     {
         float vert = Input.GetAxisRaw("Vertical") * (Input.GetButtonDown("Vertical") ? 1.0f : 0.0f);
         int change = 0;
-        if(vert > 0)
+        if (vert > 0)
         {
             change = -1;
         }
-        else if(vert < 0)
+        else if (vert < 0)
         {
             change = 1;
         }
+        return change;
+    }
 
-        if(change != 0)
+    protected virtual void ChangeSelectedMenuItem(int change)
+    {
+        if (change == 0)
         {
-            MenuItems[CurrentIndex].IsHighlighted = false;
-            CurrentIndex += change;
-            MenuItems[CurrentIndex].IsHighlighted = true;
-            Arrow.SetParent(MenuItems[CurrentIndex].transform);
-            Arrow.localPosition = ArrowValues;
+            return;
         }
+        MenuItems[CurrentIndex].IsHighlighted = false;
+        CurrentIndex += change;
+        JustHighlight(CurrentIndex);
+    }
 
+    protected virtual void CheckForAButton()
+    {
         if (Input.GetButtonDown("AButton"))
         {
             AudioSource.Play();
@@ -57,7 +100,7 @@ public class MenuItemManager : MonoBehaviour
         }
     }
 
-    private int CurrentIndex
+    protected int CurrentIndex
     {
         get
         {

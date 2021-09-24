@@ -50,6 +50,9 @@ TagManager:
   - name: Player
     uniqueID: 1037563207
     locked: 0
+  - name: GameUI
+    uniqueID: 4037763359
+    locked: 0
   - name: OpeningMenu
     uniqueID: 2467882793
     locked: 0

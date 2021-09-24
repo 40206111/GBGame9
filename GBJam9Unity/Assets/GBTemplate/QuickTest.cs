@@ -12,11 +12,13 @@ public class QuickTest : MonoBehaviour
 
     Text Text;
     TextBoxFiller TBF;
+
+    string testString = "Here is a sizable piece of text so that the progress through the dialogue may better be tracked. Aaekghaeiugwefilaaeiugaeuwhfsfaeaiefua. It's unlikely that much more than this will be needed, but we'll add a few more words just in case.";
     // Start is called before the first frame update
     void Start()
     {
         Text = GetComponent<Text>();
-        TBF = GetComponent<TextBoxFiller>();
+        TBF = GetComponentInChildren<TextBoxFiller>();
     }
 
     // Update is called once per frame
@@ -26,12 +28,13 @@ public class QuickTest : MonoBehaviour
         Text.material = (val >= 3 ? Highlighted : Regular);*/
         if (Input.GetKeyDown(KeyCode.N))
         {
-            StartCoroutine(TextTestCoroutine());
+            //StartCoroutine(TextTestCoroutine());
+            DialogueBoxControl.Instance.PrintText(testString,true);
         }
     }
 
     IEnumerator TextTestCoroutine()
     {
-        yield return TBF.PrintTextAndWait("Here is a sizable piece of text so that the progress through the dialogue may better be tracked. Aaekghaeiugwefilaaeiugaeuwhfsfaeaiefua. It's unlikely that much more than this will be needed, but we'll add a few more words just in case.");
+        yield return TBF.PrintTextAndWait(testString);
     }
 }

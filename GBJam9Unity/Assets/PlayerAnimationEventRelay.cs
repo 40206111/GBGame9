@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerAnimationEventRelay : MonoBehaviour
 {
-    PlayerAttack Attacker;
+    PlayerActions Actions;
     private void Start()
     {
-        Attacker = GetComponentInParent<PlayerAttack>();
+        Actions = GetComponentInParent<PlayerActions>();
     }
     public void AttackEnded()
     {
-        Attacker.AttackAnimationEnded();
+        Actions.AttackAnimationEnded();
     }
 }

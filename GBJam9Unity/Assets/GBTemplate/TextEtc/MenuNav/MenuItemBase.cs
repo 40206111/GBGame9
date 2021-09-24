@@ -14,7 +14,7 @@ public abstract class MenuItemBase : MonoBehaviour
 
     Text Text;
     // Start is called before the first frame update
-    void Awake()
+    protected virtual void Awake()
     {
         Text = GetComponent<Text>();
     }

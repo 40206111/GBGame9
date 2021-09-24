@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     bool LoadSceneNow = false;
 
     public TransitionController TransController;
+
+    List<int> InputTargets = new List<int>();
 
     public enum eGameState
     {
@@ -193,5 +196,38 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+
+    public void AddInputTarget(int id)
+    {
+        InputTargets.Add(id);
+    }
+
+    public void RemoveInputTarget(int id)
+    {
+        InputTargets.RemoveAt(InputTargets.FindLastIndex(x => x == id));
+    }
+
+    public bool IsActiveInputTarget(int id)
+    {
+        return ActiveInputTarget == id;
+    }
+
+    public bool NoInputTargets
+    {
+        get { return InputTargets.Count == 0; }
+    }
+
+    public int ActiveInputTarget
+    {
+        get
+        {
+            if (NoInputTargets)
+            {
+                return -1;
+            }
+            return InputTargets[InputTargets.Count - 1];
+        }
     }
 }
