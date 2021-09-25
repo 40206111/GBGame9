@@ -19,6 +19,9 @@ public class QuickTest : MonoBehaviour
     {
         Text = GetComponent<Text>();
         TBF = GetComponentInChildren<TextBoxFiller>();
+
+        ChickenData data = PlayerData.GetChickenData(eChickenClass.melee);
+
     }
 
     // Update is called once per frame
@@ -29,7 +32,14 @@ public class QuickTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             //StartCoroutine(TextTestCoroutine());
-            DialogueBoxControl.Instance.PrintText(testString,true);
+            DialogueBoxControl.Instance.PrintText(testString, true);
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            foreach (ChickSelectInfoFiller info in FindObjectsOfType<ChickSelectInfoFiller>())
+            {
+                info.FillInfo();
+            }
         }
     }
 

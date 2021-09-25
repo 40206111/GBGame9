@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Inventory
 {
-    public EquiptmentLayout EquippedItems;
-    public List<EquiptmentSlot> PocketItems;
+    public EquiptmentLayout EquippedItems = new EquiptmentLayout();
+    public List<EquiptmentSlot> PocketItems = new List<EquiptmentSlot>();
 
     public List<EquiptmentSlot> GetAllItems()
     {
@@ -27,17 +27,5 @@ public class Inventory
         {
             es.Equiptment = null;
         }
-    }
-
-    public void EquipItem(ItemDetails item, eItemType slotType, int trinketSlot = 0)
-    {
-        EquiptmentSlot slot = EquippedItems.GetEquiptmentSlot(slotType, trinketSlot);
-        if (slot.HasEquiptment)
-        {
-            AddItem(slot.Equiptment);
-            slot.Equiptment = null;
-        }
-        slot.Equiptment = item;
-        RemoveItem(item);
     }
 }

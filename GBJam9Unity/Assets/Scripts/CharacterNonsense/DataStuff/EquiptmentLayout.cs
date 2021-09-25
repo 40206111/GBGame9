@@ -53,4 +53,16 @@ public class EquiptmentLayout
             list.Add(es);
         }
     }
+
+    public ItemDetails EquipItem(ItemDetails item, eItemType slotType, int trinketSlot = 0)
+    {
+        ItemDetails outItem = null;
+        EquiptmentSlot slot = GetEquiptmentSlot(slotType, trinketSlot);
+        if (slot.HasEquiptment)
+        {
+            outItem = (slot.Equiptment);
+        }
+        slot.Equiptment = item;
+        return outItem;
+    }
 }

@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 1377355803}
   - component: {fileID: 1377355804}
   - component: {fileID: 1377355805}
+  - component: {fileID: 1377355806}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -292,3 +293,29 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377355800}
   m_Enabled: 1
+--- !u!114 &1377355806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377355800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c65cc5b8f2db74bbe867bf3247969f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseStats:
+  - ChickenClass: 0
+    Stats: {fileID: 11400000, guid: ef290215428f51f4db1e0df1d4b753ef, type: 2}
+  - ChickenClass: 1
+    Stats: {fileID: 11400000, guid: 9287292c4e4d9b14eb8490c58cb9e0bb, type: 2}
+  - ChickenClass: 2
+    Stats: {fileID: 11400000, guid: a2d2b1e973e9ed547acee9c87cd2cc67, type: 2}
+  GrowthStats:
+  - ChickenClass: 0
+    Stats: {fileID: 11400000, guid: c0fc757edfe032b40980b450c4e2e312, type: 2}
+  - ChickenClass: 1
+    Stats: {fileID: 11400000, guid: da94bfda4045dfa4ab1b8dbd24501b41, type: 2}
+  - ChickenClass: 2
+    Stats: {fileID: 11400000, guid: 30d282607bdca2f4a9956b3d00f26f76, type: 2}
