@@ -20,7 +20,21 @@ public class LootItemManager : MenuItemManager
     protected int VisibleEntries = 5;
     protected int EntryHeight = 14;
     protected int InitialGap = 10;
+    protected override void OnEnable() { }
+    protected override void OnDisable() { }
 
+    protected override void Update()
+    {
+        if (!GameManager.Instance.IsActiveInputTarget(GetInstanceID()))
+        {
+            return;
+        }
+        base.Update();
+        if (Input.GetButtonDown("BButton"))
+        {
+            Display(null);
+        }
+    }
 
     public void Display(Lootable lootable = null)
     {
@@ -55,6 +69,9 @@ public class LootItemManager : MenuItemManager
             }
         }
         MenuItems.AddRange(items);
+
+        CurrentIndex = 0;
+        JustHighlight(CurrentIndex);
     }
 
     protected bool CheckForItem(List<ItemMenuItem> items, ItemDetails item, out int index)

@@ -53,7 +53,7 @@ public class MenuItemManager : MonoBehaviour
         GameManager.Instance.AddInputTarget(GetInstanceID());
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         GameManager.Instance.RemoveInputTarget(GetInstanceID());
     }

@@ -206,7 +206,11 @@ public class GameManager : MonoBehaviour
 
     public void RemoveInputTarget(int id)
     {
-        InputTargets.RemoveAt(InputTargets.FindLastIndex(x => x == id));
+        int index = InputTargets.FindLastIndex(x => x == id);
+        if (index != -1)
+        {
+            InputTargets.RemoveAt(index);
+        }
     }
 
     public bool IsActiveInputTarget(int id)
