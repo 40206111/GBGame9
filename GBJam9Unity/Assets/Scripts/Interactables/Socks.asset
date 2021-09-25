@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 597aa937297724f4c99bdc4ebef8b535, type: 3}
-  m_Name: Poor Helmet
+  m_Name: Socks
   m_EditorClassIdentifier: 
   MaxHealth: 0
   PhysicalDamage: 0
   MagicDamage: 0
-  PhysicalResistance: 0
+  PhysicalResistance: 2
   MagicResistance: 0
   Energy: 0
-  Name: Poor Helmet
-  ItemType: 0
-  FlavourText: I had a friend that looked just like this.
-  ItemImage: {fileID: 21300000, guid: 7a689a7c897d5a44881a95e17384fb83, type: 3}
-  Price: 20
+  Name: 
+  ItemType: 3
+  FlavourText: Polka dots are my favourite.
+  ItemImage: {fileID: 21300000, guid: 5d2be865abf4ef34891757377d20d23b, type: 3}
+  Price: 15

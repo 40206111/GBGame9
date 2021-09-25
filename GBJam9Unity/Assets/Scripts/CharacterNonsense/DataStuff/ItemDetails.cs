@@ -10,4 +10,6 @@ public class ItemDetails : BaseStatBlock
     public string Name = "";
     public eItemType ItemType = eItemType.none;
     public string FlavourText = "Spicy";
+    public Sprite ItemImage;
+    public int Price;
 }

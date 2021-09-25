@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GBTemplate/Scenes/DebugScene.unity
     guid: b22a4992d1edb5b489252f9f6e7623f0
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: a2f548ca89d8068468bbf9745d441611
   m_configObjects: {}

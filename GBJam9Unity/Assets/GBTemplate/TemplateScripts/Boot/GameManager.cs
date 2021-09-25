@@ -78,7 +78,14 @@ public class GameManager : MonoBehaviour
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
         if (!PlaySplash)
         {
-            LoadSceneByName("StartScene", eTransitionEnums.None);
+            if (Cheats.ForceLoadSceneFromBoot)
+            {
+                LoadSceneByName(Cheats.SceneToLoadFromBoot, eTransitionEnums.None);
+            }
+            else
+            {
+                LoadSceneByName("StartScene", eTransitionEnums.None);
+            }
         }
         else
         {

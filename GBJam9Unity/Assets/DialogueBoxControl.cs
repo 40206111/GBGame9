@@ -13,19 +13,15 @@ public class DialogueBoxControl : MonoBehaviour
             Destroy(_Instance.gameObject);
         }
         _Instance = this;
+
+        Filler = GetComponentInChildren<TextBoxFiller>();
+        Filler.gameObject.SetActive(false);
+        IsShowing = Filler.gameObject.activeInHierarchy;
     }
 
     public bool RequiresInput = true;
     TextBoxFiller Filler;
     bool IsShowing = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Filler = GetComponentInChildren<TextBoxFiller>();
-        Filler.gameObject.SetActive(false);
-        IsShowing = Filler.gameObject.activeInHierarchy;
-    }
 
 
     public void ResetSpeed()

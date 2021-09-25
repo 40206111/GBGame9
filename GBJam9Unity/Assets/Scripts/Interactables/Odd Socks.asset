@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 597aa937297724f4c99bdc4ebef8b535, type: 3}
-  m_Name: Poor Helmet
+  m_Name: Odd Socks
   m_EditorClassIdentifier: 
   MaxHealth: 0
   PhysicalDamage: 0
   MagicDamage: 0
-  PhysicalResistance: 0
-  MagicResistance: 0
+  PhysicalResistance: 1
+  MagicResistance: 1
   Energy: 0
-  Name: Poor Helmet
-  ItemType: 0
-  FlavourText: I had a friend that looked just like this.
-  ItemImage: {fileID: 21300000, guid: 7a689a7c897d5a44881a95e17384fb83, type: 3}
-  Price: 20
+  Name: Odd Socks
+  ItemType: 3
+  FlavourText: 1 for magic, 1 for physical.
+  ItemImage: {fileID: 21300000, guid: 529e0c1b7df798f4a80577a02f626240, type: 3}
+  Price: 15
