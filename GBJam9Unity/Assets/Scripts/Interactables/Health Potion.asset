@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 597aa937297724f4c99bdc4ebef8b535, type: 3}
-  m_Name: Poor Helmet
+  m_Name: Health Potion
   m_EditorClassIdentifier: 
   MaxHealth: 0
   PhysicalDamage: 0
@@ -18,8 +18,8 @@ MonoBehaviour:
   PhysicalResistance: 0
   MagicResistance: 0
   Energy: 0
-  Name: Poor Helmet
-  ItemType: 0
-  FlavourText: I had a friend that looked just like this.
-  ItemImage: {fileID: 21300000, guid: 7a689a7c897d5a44881a95e17384fb83, type: 3}
-  Price: 20
+  Name: Health Potion
+  ItemType: 6
+  FlavourText: Tastes like blood.
+  ItemImage: {fileID: 21300000, guid: d2fdb56df3b9d3749900019d3799536d, type: 3}
+  Price: 5
