@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mage Dead
+  m_Name: magic back
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1847424575052950199, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+      value: {fileID: -4178928046690036339, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
     - time: 0.125
-      value: {fileID: 3566635420616488726, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+      value: {fileID: 901288707288964492, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+    - time: 0.25
+      value: {fileID: 4466469809926585518, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
     - time: 0.375
-      value: {fileID: 3230820063610970513, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - time: 0.625
-      value: {fileID: 7361463150580995212, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - time: 0.75
-      value: {fileID: 7361463150580995212, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+      value: {fileID: 2957748285509374545, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1847424575052950199, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - {fileID: 3566635420616488726, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - {fileID: 3230820063610970513, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - {fileID: 7361463150580995212, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
-    - {fileID: 7361463150580995212, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+    - {fileID: -4178928046690036339, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+    - {fileID: 901288707288964492, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+    - {fileID: 4466469809926585518, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
+    - {fileID: 2957748285509374545, guid: 086fb791b22d8734ba8f2e662e0fdf53, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.875
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,8 +75,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: PlayDied
+  - time: 0.375
+    functionName: AttackEnded
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -1,67 +1,7 @@
 fileFormatVersion: 2
-guid: 086fb791b22d8734ba8f2e662e0fdf53
+guid: 3f94e90cefc8f58409a90ede680bd17b
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 371216519823529354
-    second: chicken mage Abilities_0
-  - first:
-      213: 3799496647224286338
-    second: chicken mage Abilities_1
-  - first:
-      213: -5970938186652552192
-    second: chicken mage Abilities_2
-  - first:
-      213: 3956062911008724374
-    second: chicken mage Abilities_3
-  - first:
-      213: 7294561573613935225
-    second: chicken mage Abilities_4
-  - first:
-      213: -6656473529487980999
-    second: chicken mage Abilities_5
-  - first:
-      213: 167627122148845012
-    second: chicken mage Abilities_6
-  - first:
-      213: 3648924625874851338
-    second: chicken mage Abilities_7
-  - first:
-      213: 5537439125332186362
-    second: chicken mage Abilities_8
-  - first:
-      213: -6456220287140111305
-    second: chicken mage Abilities_9
-  - first:
-      213: 7730182660757989526
-    second: chicken mage Abilities_10
-  - first:
-      213: -1017164335001479840
-    second: chicken mage Abilities_11
-  - first:
-      213: -4178928046690036339
-    second: chicken mage Abilities_12
-  - first:
-      213: 901288707288964492
-    second: chicken mage Abilities_13
-  - first:
-      213: 4466469809926585518
-    second: chicken mage Abilities_14
-  - first:
-      213: 2957748285509374545
-    second: chicken mage Abilities_15
-  - first:
-      213: -1847424575052950199
-    second: chicken mage Abilities_16
-  - first:
-      213: 3566635420616488726
-    second: chicken mage Abilities_17
-  - first:
-      213: 3230820063610970513
-    second: chicken mage Abilities_18
-  - first:
-      213: 7361463150580995212
-    second: chicken mage Abilities_19
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -163,91 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chicken mage Abilities_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8596de3573d62500800000000000000
-      internalID: 371216519823529354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28c571fe1168ab430800000000000000
-      internalID: 3799496647224286338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00472c8ca57f22da0800000000000000
-      internalID: -5970938186652552192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 64
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 695d5c7e142c6e630800000000000000
-      internalID: 3956062911008724374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_4
+      name: chicken_0
       rect:
         serializedVersion: 2
         x: 0
@@ -261,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a197b5a1d7b3560800000000000000
-      internalID: 7294561573613935225
+      spriteID: fe79040b13b007870800000000000000
+      internalID: 8678448789981272047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_5
+      name: chicken_1
       rect:
         serializedVersion: 2
         x: 16
@@ -282,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936041aa7947f93a0800000000000000
-      internalID: -6656473529487980999
+      spriteID: 2e108a018c057aee0800000000000000
+      internalID: -1249941551368896030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_6
+      name: chicken_2
       rect:
         serializedVersion: 2
         x: 32
@@ -303,35 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d5276ebaf7835200800000000000000
-      internalID: 167627122148845012
+      spriteID: 5e6085a0e9fbb4380800000000000000
+      internalID: -8985877945988413723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0612794d9593a230800000000000000
-      internalID: 3648924625874851338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_8
+      name: chicken_3
       rect:
         serializedVersion: 2
         x: 0
@@ -345,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af456cebb8fe8dc40800000000000000
-      internalID: 5537439125332186362
+      spriteID: 6f469532b62b83e00800000000000000
+      internalID: 1024765088451093750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_9
+      name: chicken_4
       rect:
         serializedVersion: 2
         x: 16
@@ -366,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73cd759fad5e666a0800000000000000
-      internalID: -6456220287140111305
+      spriteID: 384a2409a2b861260800000000000000
+      internalID: 7067989680129746051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_10
+      name: chicken_5
       rect:
         serializedVersion: 2
         x: 32
@@ -387,35 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6982d577c20274b60800000000000000
-      internalID: 7730182660757989526
+      spriteID: e1d201e1b2e5da0d0800000000000000
+      internalID: -3409965803568616162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0655a0e2d6e42e1f0800000000000000
-      internalID: -1017164335001479840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_12
+      name: chicken_6
       rect:
         serializedVersion: 2
         x: 0
@@ -429,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d859f1b15177106c0800000000000000
-      internalID: -4178928046690036339
+      spriteID: 1ea64936901c841f0800000000000000
+      internalID: -1060385466176214303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_13
+      name: chicken_7
       rect:
         serializedVersion: 2
         x: 16
@@ -450,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8d9706dd45028c00800000000000000
-      internalID: 901288707288964492
+      spriteID: 335d59adef1528b10800000000000000
+      internalID: 1982236941027235123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_14
+      name: chicken_8
       rect:
         serializedVersion: 2
         x: 32
@@ -471,35 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eac3ea4b0a61cfd30800000000000000
-      internalID: 4466469809926585518
+      spriteID: de9885efe897a1f40800000000000000
+      internalID: 5700001933450316269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_15
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1529ec415680c0920800000000000000
-      internalID: 2957748285509374545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_16
+      name: chicken_9
       rect:
         serializedVersion: 2
         x: 0
@@ -513,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94554a61321ac56e0800000000000000
-      internalID: -1847424575052950199
+      spriteID: 16eba5c14054d1070800000000000000
+      internalID: 8078689190530432609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_17
+      name: chicken_10
       rect:
         serializedVersion: 2
         x: 16
@@ -534,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 617fb29a40c3f7130800000000000000
-      internalID: 3566635420616488726
+      spriteID: 909d11da59841b820800000000000000
+      internalID: 2932204640085858569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chicken mage Abilities_18
+      name: chicken_11
       rect:
         serializedVersion: 2
         x: 32
@@ -555,29 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 191acb0fabd26dc20800000000000000
-      internalID: 3230820063610970513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken mage Abilities_19
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8412859bbb292660800000000000000
-      internalID: 7361463150580995212
+      spriteID: df6d48c2a34488470800000000000000
+      internalID: 8397036521877985021
       vertices: []
       indices: 
       edges: []
