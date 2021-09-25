@@ -11,6 +11,10 @@ public class DebugConsole : MonoBehaviour
     InputField ConsoleInput;
     EventSystem myEventSystem;
 
+    public static event Action<string> ConsoleEvent;
+
+    string LastCommand = "";
+
     private void Awake()
     {
         myEventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -19,6 +23,7 @@ public class DebugConsole : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(SelectConsole());
+        ConsoleInput.text = "";
     }
 
     // Update is called once per frame
@@ -27,12 +32,27 @@ public class DebugConsole : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log($"reading {ConsoleInput.text} from console");
+            LastCommand = ConsoleInput.text;
             ParseInput(ConsoleInput.text);
+            SendEvent(ConsoleInput.text);
             ConsoleInput.text = "";
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             StartCoroutine(SelectConsole(toggle: true));
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && myEventSystem.currentSelectedGameObject == ConsoleInput.gameObject)
+        {
+            ConsoleInput.text = LastCommand;
+        }
+    }
+
+    void SendEvent(string message)
+    {
+        if (ConsoleEvent != null)
+        {
+            ConsoleEvent.Invoke(message);
         }
     }
 

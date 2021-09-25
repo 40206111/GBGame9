@@ -61,4 +61,29 @@ public class ShopControl : MonoBehaviour
     }
 
 
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+    private void OnEnable()
+    {
+        DebugConsole.ConsoleEvent += OnDebugConsole;
+    }
+
+    private void OnDisable()
+    {
+        DebugConsole.ConsoleEvent -= OnDebugConsole;
+    }
+
+    private void OnDebugConsole(string message)
+    {
+        var parts = message.Split(' ');
+
+        
+        if (parts[0].ToLower().Equals("shop"))
+        {
+            if (parts[1].ToLower() == "reset")
+            {
+                PopulateShop();
+            }
+        }
+    }
+#endif
 }
