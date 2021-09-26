@@ -24,14 +24,85 @@ public class ShopControl : MenuItemManager
     [SerializeField]
     string ShopText;
 
+    [SerializeField]
+    Camera ShopCamera;
 
-    protected void Start()
+    Camera OldCamera;
+
+    [SerializeField]
+    eTransitionEnums TransitionIn;
+    [SerializeField]
+    eTransitionEnums TransitionOut;
+    [SerializeField]
+    float FadeTime = 1;
+
+    [SerializeField]
+    Animator Merchant;
+
+    bool ShopOpen = false;
+
+    protected override void Start()
     {
         base.Start();
         SpecialItem = MenuItems[0] as ShopItem;
         DefenseItem = MenuItems[1] as ShopItem;
         AttackItem = MenuItems[2] as ShopItem;
+        GameManager.Instance.Shop = this;
+        ShopCamera.enabled = false;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        CheckForBButton();
+    }
+
+    protected virtual void CheckForBButton()
+    {
+        if (Input.GetButtonDown("BButton"))
+        {
+            LeaveShop();
+        }
+    }
+
+    public void LeaveShop()
+    {
+        if (!ShopOpen) return;
+        ShopOpen = false;
+        GameManager.Instance.QueueTransition(TransitionOut, FadeTime);
+        GameManager.Instance.TransController.RunTransition(false, method: RemoveShop);
+    }
+
+    void RemoveShop()
+    {
+        RenderTransition.FinishedTransitionDel -= RemoveShop;
+        Merchant.SetBool("Go", false);
+        GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
+        OldCamera.enabled = true;
+        ShopCamera.enabled = false;
+        GameManager.Instance.QueueTransition(TransitionOut, FadeTime);
+        GameManager.Instance.TransController.RunTransition(true);
+    }
+
+    public void GoToShop()
+    {
+        if (ShopOpen) return;
+        ShopOpen = true;
+        GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+        GameManager.Instance.QueueTransition(TransitionOut, FadeTime);
+        GameManager.Instance.TransController.RunTransition(false, method: LoadShop);
+    }
+
+    void LoadShop()
+    {
+        RenderTransition.FinishedTransitionDel -= LoadShop;
+        OldCamera = Camera.main;
+        OldCamera.enabled = false;
+        ShopCamera.enabled = true;
         PopulateShop();
+        Merchant.SetBool("Go", true);
+        GameManager.Instance.QueueTransition(TransitionIn, FadeTime);
+        GameManager.Instance.TransController.RunTransition(true);
         StartCoroutine(WaitForShopKeeperToFinish(ShopText));
     }
 
@@ -136,19 +207,21 @@ public class ShopControl : MenuItemManager
     }
 
 
+    protected override void OnEnable()
+    {
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
-    protected void OnEnable()
-    {
-        base.OnEnable();
         DebugConsole.ConsoleEvent += OnDebugConsole;
+#endif
     }
 
-    protected void OnDisable()
+    protected override void OnDisable()
     {
-        base.OnDisable();
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
         DebugConsole.ConsoleEvent -= OnDebugConsole;
+#endif
     }
 
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
     private void OnDebugConsole(string message)
     {
         var parts = message.Split(' ');

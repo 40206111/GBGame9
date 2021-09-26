@@ -20,7 +20,7 @@ public class MenuItemManager : MonoBehaviour
     protected string InputAxis = "Vertical";
 
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         ArrowValues = Arrow.anchoredPosition;
         if (MenuItems.Count > 0)

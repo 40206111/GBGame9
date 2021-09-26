@@ -24,6 +24,12 @@ public class DebugConsole : MonoBehaviour
     {
         StartCoroutine(SelectConsole());
         ConsoleInput.text = "";
+        GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
     }
 
     // Update is called once per frame

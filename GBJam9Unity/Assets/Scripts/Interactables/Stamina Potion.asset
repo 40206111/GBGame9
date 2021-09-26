@@ -18,7 +18,7 @@ MonoBehaviour:
   PhysicalResistance: 0
   MagicResistance: 0
   Energy: 5
-  Name: Stamina Potion
+  Name: Energy Potion
   ItemType: 6
   FlavourText: Zoom Zoom baby!
   ItemImage: {fileID: 21300000, guid: 15d69b78f0918fe4dad129853562e271, type: 3}

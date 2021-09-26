@@ -20,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Shop
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1037563207
+    locked: 0
+  - name: UI Banner
+    uniqueID: 35474685
     locked: 0
   - name: GameUI
     uniqueID: 4037763359

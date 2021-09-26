@@ -13,6 +13,8 @@ public static class PlayerData
     public static ChickenData MageChicken;
     public static ChickenData RangerChicken;
 
+    public static eChickenClass ActiveChicken = eChickenClass.melee;
+
     public static int Seeds = 0;
 
     public static void ConstructClasses()
