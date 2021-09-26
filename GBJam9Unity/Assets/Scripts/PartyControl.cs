@@ -83,6 +83,10 @@ public class PartyControl : MonoBehaviour
 
     private void PopulateFromChicken(eChickenClass chickClass)
     {
+        if(chickClass == eChickenClass.none)
+        {
+            return;
+        }
         EquipMan.PopulateMenu(GetItemDetails(chickClass));
         Header.ChangeChicken(chickClass);
     }
