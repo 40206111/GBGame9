@@ -57,4 +57,14 @@ public class LootItemManager : PopulatingMenuManager
             }
         }
     }
+
+    public override void RemoveMenuItem(MenuItemBase menuItem)
+    {
+        base.RemoveMenuItem(menuItem);
+        if (MenuItems.Count == 0)
+        {
+            Display(null);
+        }
+
+    }
 }
