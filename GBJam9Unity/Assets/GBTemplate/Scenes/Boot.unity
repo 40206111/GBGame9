@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerOffWaitTime: 1
-  PlaySplash: 1
+  PlaySplash: 0
   Shop: {fileID: 0}
 --- !u!114 &1377355803
 MonoBehaviour:
