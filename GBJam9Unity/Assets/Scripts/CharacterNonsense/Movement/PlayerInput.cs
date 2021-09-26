@@ -17,7 +17,12 @@ public class PlayerInput : MonoBehaviour
     {
         MoveUpdate();
 
-        AttackUpdate();
+        if (GameManager.Instance.NoInputTargets)
+        {
+            AttackUpdate();
+
+            SelectUpdate();
+        }
     }
 
     void MoveUpdate()
@@ -36,10 +41,6 @@ public class PlayerInput : MonoBehaviour
 
     void AttackUpdate()
     {
-        if (!GameManager.Instance.NoInputTargets)
-        {
-            return;
-        }
         if (Input.GetButtonDown("AButton"))
         {
             Pcs.Actions.AButtonPushed();
@@ -47,6 +48,14 @@ public class PlayerInput : MonoBehaviour
         else if (Input.GetButtonDown("BButton"))
         {
             Pcs.Actions.BButtonPushed();
+        }
+    }
+
+    void SelectUpdate()
+    {
+        if (Input.GetButtonDown("Select"))
+        {
+            Pcs.Actions.SelectPushed();
         }
     }
 }

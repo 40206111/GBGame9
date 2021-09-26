@@ -11,17 +11,6 @@ public class PlayerActions : MonoBehaviour
     {
         Pcs = GetComponent<PlayerComponents>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void AButtonPushed()
     {
@@ -90,5 +79,18 @@ public class PlayerActions : MonoBehaviour
             Pcs.Mover.RemoveMovementLock();
         }
         Attacking = false;
+    }
+
+    public void SelectPushed()
+    {
+        if (!Attacking)
+        {
+            ChickenSelectControl.Instance.RunChickenSelect(SwapActiveChicken);
+        }
+    }
+
+    public void SwapActiveChicken(eChickenClass chickClass)
+    {
+        Debug.Log($"Swapping chickens is definitely coded. Go to chicken: {chickClass}.");
     }
 }
