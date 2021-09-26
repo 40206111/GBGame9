@@ -10,6 +10,8 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] AudioClip Throw;
     [SerializeField] AudioClip Roll;
     [SerializeField] AudioClip Died;
+    [SerializeField] AudioClip AttackMage;
+    [SerializeField] AudioClip SpecialMage;
     AudioSource ASource;
 
     private void Awake()
@@ -39,6 +41,15 @@ public class PlayerAudio : MonoBehaviour
     public void PlayDied()
     {
         StartCoroutine(PlaySound(Died, 0));
+    }
+
+    public void PlayAttackMage()
+    {
+        StartCoroutine(PlaySound(AttackMage, 0));
+    }
+    public void PlaySpecialMage()
+    {
+        StartCoroutine(PlaySound(SpecialMage, 0));
     }
 
     IEnumerator<YieldInstruction> PlaySound(AudioClip clip, float time)
