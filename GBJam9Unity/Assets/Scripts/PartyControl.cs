@@ -15,7 +15,10 @@ public class PartyControl : MonoBehaviour
     private GameObject MenuContainer;
     [SerializeField]
     private EquippedMenuManager EquipMan;
+    [SerializeField]
+    private PartyMenuHeader Header;
 
+    private bool MenuOpen = false;
 
     private void Start()
     {
@@ -24,10 +27,11 @@ public class PartyControl : MonoBehaviour
 
     public void OpenPartyScreen()
     {
+        MenuOpen = true;
         MenuContainer.SetActive(true);
         GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
         DialogueBoxControl.Instance.Display(true);
-        EquipMan.PopulateMenu(GetItemDetails(eChickenClass.melee));
+        PopulateFromChicken(eChickenClass.melee);
     }
 
     private List<ItemDetails> GetItemDetails(eChickenClass chickClass)
@@ -55,6 +59,7 @@ public class PartyControl : MonoBehaviour
 
     public void HidePartyScreen()
     {
+        MenuOpen = false;
         EquipMan.CleanUp();
         MenuContainer.SetActive(false);
         GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
@@ -63,12 +68,22 @@ public class PartyControl : MonoBehaviour
 
     private void Update()
     {
-        if (MenuContainer.activeInHierarchy && GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
+        if (MenuOpen && GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
         {
             if (Input.GetButtonDown("BButton"))
             {
                 HidePartyScreen();
             }
+            else if (Input.GetButtonDown("Select"))
+            {
+                ChickenSelectControl.Instance.RunChickenSelect(PopulateFromChicken);
+            }
         }
+    }
+
+    private void PopulateFromChicken(eChickenClass chickClass)
+    {
+        EquipMan.PopulateMenu(GetItemDetails(chickClass));
+        Header.ChangeChicken(chickClass);
     }
 }
