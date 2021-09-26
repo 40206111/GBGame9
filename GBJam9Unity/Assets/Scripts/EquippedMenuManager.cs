@@ -34,6 +34,7 @@ public class EquippedMenuManager : PopulatingMenuManager
 
         CurrentIndex = 0;
         JustHighlight(CurrentIndex);
+        PrintCurrentItem();
     }
 
     protected eItemType GetTypeFromInt(int i)
@@ -78,12 +79,25 @@ public class EquippedMenuManager : PopulatingMenuManager
         base.ChangeSelectedMenuItem(change);
         if (change != 0)
         {
-            ItemMenuItem itemMenuItem = (ItemMenuItem)MenuItems[CurrentIndex];
-            if (itemMenuItem.Item != null)
-            {
-                DialogueBoxControl.Instance.PrintText(itemMenuItem.Item.ToString());
-            }
+            PrintCurrentItem();
         }
+    }
+
+    protected virtual void PrintCurrentItem()
+    {
+        ItemMenuItem itemMenuItem = (ItemMenuItem)MenuItems[CurrentIndex];
+        if (itemMenuItem.Item != null)
+        {
+            PrintToDialogue(itemMenuItem.Item.ToString());
+        }
+        else
+        {
+            PrintToDialogue("No item equipped.");
+        }
+    }
+    protected virtual void PrintToDialogue(string str)
+    {
+        DialogueBoxControl.Instance.PrintText(str, 0.0f);
     }
 
     public override void CleanUp()

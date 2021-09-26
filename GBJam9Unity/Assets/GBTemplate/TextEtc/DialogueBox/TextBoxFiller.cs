@@ -29,7 +29,7 @@ public class TextBoxFiller : MonoBehaviour
 
     public void SetTimePerChar(float time)
     {
-        TimePerChar = time;
+        TimePerChar = Mathf.Max(time, 0.001f);
     }
 
     public void PrintText(string text)

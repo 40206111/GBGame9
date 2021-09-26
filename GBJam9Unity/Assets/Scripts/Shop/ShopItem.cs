@@ -25,7 +25,7 @@ public class ShopItem : MonoBehaviour
 
     public void Selected()
     {
-        DialogueBoxControl.Instance.PrintText(Details.FlavourText, false);
+        DialogueBoxControl.Instance.PrintText(Details.FlavourText, closeAfterText: false);
     }
 
 }

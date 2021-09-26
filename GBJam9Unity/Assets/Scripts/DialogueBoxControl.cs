@@ -41,23 +41,31 @@ public class DialogueBoxControl : MonoBehaviour
         IsShowing = Filler.gameObject.activeInHierarchy;
     }
 
-    public void PrintText(string text, bool closeAfterText = false)
+    public void PrintText(string text, float timePerChar = -1.0f, bool closeAfterText = false)
     {
-        StartCoroutine(PrintTextAndWait(text, closeAfterText));
+        StartCoroutine(PrintTextAndWait(text,timePerChar, closeAfterText));
     }
 
-    public IEnumerator PrintTextAndWait(string text, bool closeAfterText = false)
+    public IEnumerator PrintTextAndWait(string text, float timePerChar = -1.0f, bool closeAfterText = false)
     {
         if (!IsShowing)
         {
             Display(true);
         }
         GameManager.Instance.AddInputTarget(Filler.GetInstanceID());
+        if(timePerChar!= -1.0f)
+        {
+            SetTimePerChar(timePerChar);
+        }
         yield return Filler.PrintTextAndWait(text);
         if (closeAfterText)
         {
             yield return StartCoroutine(Filler.WaitForUser());
             Display(false);
+        }
+        if (timePerChar != -1.0f)
+        {
+            ResetSpeed();
         }
         GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
     }

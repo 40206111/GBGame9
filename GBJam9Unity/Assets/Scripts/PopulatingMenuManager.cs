@@ -110,7 +110,7 @@ public class PopulatingMenuManager : MenuItemManager
         MenuItems.RemoveAt(index);
         for (int i = index; i < MenuItems.Count; ++i)
         {
-            MenuItems[i].transform.Translate(Vector3.up * EntryHeight);
+            MenuItems[i].transform.Translate(Vector3.up * EntryHeight / 16.0f);
         }
     }
 }

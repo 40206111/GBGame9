@@ -16,8 +16,21 @@ public class Inventory
 
     public void AddItem(ItemDetails item)
     {
+        if (item.ItemType == eItemType.chestPiece)
+        {
+            PlayerData.MeleeChicken.EquippedItems.EquipItem(item, item.ItemType);
+        }
+
         EquiptmentSlot es = PocketItems.Find(x => x.Equiptment == null);
-        es.Equiptment = item;
+        if (es != null)
+        {
+            es.Equiptment = item;
+        }
+        else
+        {
+            PocketItems.Add(new EquiptmentSlot());
+            PocketItems[PocketItems.Count - 1].AddItem(item);
+        }
     }
 
     public void RemoveItem(ItemDetails item)

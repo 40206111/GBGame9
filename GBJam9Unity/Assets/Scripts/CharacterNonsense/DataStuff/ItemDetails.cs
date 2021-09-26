@@ -16,9 +16,9 @@ public class ItemDetails : BaseStatBlock
     public override string ToString()
     {
         string outString =
-            $"Max Health: {MaxHealth}   Stamina: {Energy}\n" +
-            $"Phys Attck: {PhysicalDamage}   Mag Atck: {MagicDamage}\n" +
-            $"Phys Def  : {PhysicalResistance}   Mag Def : {MagicResistance}";
+            $"Health: {MaxHealth}. Stamina: {Energy}.\n" +
+            $"PhysAtk: {PhysicalDamage}. MagAtk: {MagicDamage}.\n" +
+            $"PhysDef: {PhysicalResistance}. MagDef: {MagicResistance}.";
         return outString;
     }
 }

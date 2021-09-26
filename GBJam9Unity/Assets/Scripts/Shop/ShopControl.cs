@@ -25,7 +25,7 @@ public class ShopControl : MonoBehaviour
     private void Start()
     {
         PopulateShop();
-        DialogueBoxControl.Instance.PrintText(ShopText, false);
+        DialogueBoxControl.Instance.PrintText(ShopText, closeAfterText: false);
     }
 
     private void Update()

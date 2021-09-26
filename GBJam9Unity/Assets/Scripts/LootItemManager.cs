@@ -19,10 +19,22 @@ public class LootItemManager : PopulatingMenuManager
             return;
         }
         base.Update();
-        if (Input.GetButtonDown("BButton"))
+        if (Input.GetButtonDown("AButton"))
+        {
+            TransferItemToInventory();
+        }
+        else if (Input.GetButtonDown("BButton"))
         {
             Display(null);
         }
+    }
+
+    private void TransferItemToInventory()
+    {
+        ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
+        PlayerData.Inventory.AddItem(imi.Item);
+        RemoveMenuItem(imi);
+        Destroy(imi.gameObject);
     }
 
     public void Display(Lootable lootable = null)

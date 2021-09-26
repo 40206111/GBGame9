@@ -32,7 +32,7 @@ public class QuickTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             //StartCoroutine(TextTestCoroutine());
-            DialogueBoxControl.Instance.PrintText(testString, false);
+            DialogueBoxControl.Instance.PrintText(testString, closeAfterText: false);
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
