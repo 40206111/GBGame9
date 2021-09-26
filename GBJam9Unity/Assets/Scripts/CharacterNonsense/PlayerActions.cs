@@ -98,6 +98,5 @@ public class PlayerActions : MonoBehaviour
         }
         Pcs.Data.ChangeActiveChicken(chickClass);
         Pcs.Mover.RefreshFacingForAnimator();
-        PlayerData.ActiveChicken = chickClass;
     }
 }

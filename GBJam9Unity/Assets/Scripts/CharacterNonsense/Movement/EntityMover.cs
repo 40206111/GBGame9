@@ -28,6 +28,11 @@ public class EntityMover : MonoBehaviour
         Deceleration = 2.0f * Acceleration;
     }
 
+    private void Start()
+    {
+        RefreshFacingForAnimator();
+    }
+
     public void AddMovementLock()
     {
         MovementLocks++;
@@ -101,7 +106,7 @@ public class EntityMover : MonoBehaviour
 
     private void SetFacingDirection(Vector2Int dir)
     {
-        if(dir == Vector2Int.zero)
+        if (dir == Vector2Int.zero)
         {
             return;
         }

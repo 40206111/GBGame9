@@ -18,9 +18,15 @@ public class PlayerDataMono : MonoBehaviour
     private eChickenClass _activeClass;
     public eChickenClass ActiveClass { get { return _activeClass; } }
 
+    private void Start()
+    {
+        ChangeActiveChicken(eChickenClass.melee);
+    }
+
     public void ChangeActiveChicken(eChickenClass chickClass)
     {
         Animator.runtimeAnimatorController = Controllers.Find(x => x.ChickenClass == chickClass).Controller;
+        PlayerData.ActiveChicken = chickClass;
         // ~~~ surely there is more
         _activeClass = chickClass;
     }

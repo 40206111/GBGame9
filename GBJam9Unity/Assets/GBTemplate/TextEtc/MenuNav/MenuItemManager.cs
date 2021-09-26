@@ -105,9 +105,9 @@ public class MenuItemManager : MonoBehaviour
         return change;
     }
 
-    protected virtual void ChangeSelectedMenuItem(int change)
+    protected virtual void ChangeSelectedMenuItem(int change, bool force = false)
     {
-        if (change == 0)
+        if (!force && change == 0)
         {
             return;
         }

@@ -74,7 +74,7 @@ public class EquippedMenuManager : PopulatingMenuManager
         }
     }
 
-    protected override void ChangeSelectedMenuItem(int change)
+    protected override void ChangeSelectedMenuItem(int change, bool force = false)
     {
         base.ChangeSelectedMenuItem(change);
         if (change != 0)

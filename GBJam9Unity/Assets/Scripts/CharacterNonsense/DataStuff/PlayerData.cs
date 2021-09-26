@@ -14,6 +14,12 @@ public static class PlayerData
     public static ChickenData RangerChicken;
 
     public static eChickenClass ActiveChicken = eChickenClass.melee;
+    private static Dictionary<eChickenClass, bool> _availableChickens = new Dictionary<eChickenClass, bool>()
+    {
+        {eChickenClass.melee, true},
+        {eChickenClass.mage, false},
+        {eChickenClass.ranger, false}
+    };
 
     public static int Seeds = 0;
 
@@ -25,8 +31,12 @@ public static class PlayerData
         RangerChicken = new ChickenData(eChickenClass.ranger);
     }
 
-    public static ChickenData GetChickenData(eChickenClass chickClass)
+    public static ChickenData GetChickenData(eChickenClass chickClass, bool forceDataReturn = false)
     {
+        if (!forceDataReturn && _availableChickens.ContainsKey(chickClass) && !_availableChickens[chickClass])
+        {
+            return null;
+        }
         switch (chickClass)
         {
             case eChickenClass.melee:
@@ -39,7 +49,23 @@ public static class PlayerData
                 return MeleeChicken;
         }
     }
-    //public static 
+
+    public static void SetChickenAvailable(eChickenClass chickClass, bool available)
+    {
+        if (_availableChickens.ContainsKey(chickClass))
+        {
+            _availableChickens[chickClass] = available;
+        }
+    }
+
+    public static bool IsChickenAvailable(eChickenClass chickClass)
+    {
+        if(_availableChickens.ContainsKey(chickClass))
+        {
+            return _availableChickens[chickClass];
+        }
+        return false;
+    }
 
 
 #if DEVELOPMENT_BUILD || UNITY_EDITOR

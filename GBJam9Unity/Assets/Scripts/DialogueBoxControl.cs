@@ -39,6 +39,10 @@ public class DialogueBoxControl : MonoBehaviour
         Filler.ClearText();
         Filler.gameObject.SetActive(active);
         IsShowing = Filler.gameObject.activeInHierarchy;
+        if (CameraFollow.ActiveCamera != null)
+        {
+            GetComponent<Canvas>().worldCamera = CameraFollow.ActiveCamera;
+        }
     }
 
     public void PrintText(string text, float timePerChar = -1.0f, bool closeAfterText = false)
