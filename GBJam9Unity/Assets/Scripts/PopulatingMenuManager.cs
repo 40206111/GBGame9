@@ -66,13 +66,13 @@ public class PopulatingMenuManager : MenuItemManager
         }
         MenuItems.Clear();
     }
-    protected override void ChangeSelectedMenuItem(int change)
+    protected override void ChangeSelectedMenuItem(int change, bool force = false)
     {
-        if (change == 0)
+        if (!force && change == 0)
         {
             return;
         }
-        base.ChangeSelectedMenuItem(change);
+        base.ChangeSelectedMenuItem(change, force);
 
         int difference = 0;
         if ((change < 0 && CurrentIndex < ItemsScrolled) || (change > 0 && CurrentIndex == 0))
@@ -83,6 +83,15 @@ public class PopulatingMenuManager : MenuItemManager
             || (change < 0 && CurrentIndex == MenuItems.Count - 1))
         {
             difference = CurrentIndex - (ItemsScrolled + VisibleEntries - 2);
+        }
+        int clamped = Mathf.Clamp(ItemsScrolled + difference, 0,Mathf.Max(0, MenuItems.Count - (VisibleEntries - 1)));
+        if(ItemsScrolled == clamped)
+        {
+            difference = 0;
+        }
+        else if(clamped != ItemsScrolled + difference)
+        {
+            difference = clamped - ItemsScrolled;
         }
         ItemsScrolled += difference;
         MoveTextHolder(EntryHeight * difference);
@@ -98,7 +107,7 @@ public class PopulatingMenuManager : MenuItemManager
         int index = MenuItems.IndexOf(menuItem);
         if (MenuItems.Count != 0)
         {
-            if (index != MenuItems.Count - 1)
+            if (index < MenuItems.Count - 1)
             {
                 ChangeSelectedMenuItem(1);
             }
@@ -108,6 +117,14 @@ public class PopulatingMenuManager : MenuItemManager
             }
         }
         MenuItems.RemoveAt(index);
+        if(MenuItems.Count == 0)
+        {
+            return;
+        }
+        if(CurrentIndex >= index)
+        {
+            CurrentIndex--;
+        }
         for (int i = index; i < MenuItems.Count; ++i)
         {
             MenuItems[i].transform.Translate(Vector3.up * EntryHeight / 16.0f);
