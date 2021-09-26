@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CloseMenuMI : MenuItemBase
 {
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         GetComponentInParent<MenuItemManager>().gameObject.SetActive(false);
+        return true;
     }
 }

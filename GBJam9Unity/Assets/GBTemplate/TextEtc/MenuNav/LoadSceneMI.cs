@@ -12,8 +12,9 @@ public class LoadSceneMI : MenuItemBase
     [SerializeField]
     float FadeTime = 1;
 
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         GameManager.Instance.LoadSceneByName(SceneName, Transition, FadeTime);
+        return true;
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class OpenInventoryMI : MenuItemBase
 {
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         Debug.Log("This is where we open the inventory.");
+        return true;
     }
 }

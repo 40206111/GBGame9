@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SaveMI : MenuItemBase
 {
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         Debug.Log("This is where we save the game.");
+        return true;
     }
 }

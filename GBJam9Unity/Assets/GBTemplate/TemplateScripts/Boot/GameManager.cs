@@ -73,6 +73,18 @@ public class GameManager : MonoBehaviour
         GameState = eGameState.Playing;
     }
 
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+    private void OnEnable()
+    {
+        PlayerData.OnEnable();
+    }
+
+    private void OnDisable()
+    {
+        PlayerData.OnDisable();
+    }
+#endif
+
     private void Start()
     {
 #if DEVELOPMENT_BUILD || UNITY_EDITOR

@@ -52,12 +52,17 @@ public class DialogueBoxControl : MonoBehaviour
         {
             Display(true);
         }
+        if (GameManager.Instance.IsActiveInputTarget(Filler.GetInstanceID()))
+        {
+            Debug.LogWarning("Too many dialogue calls!");
+            yield break;
+        }
         GameManager.Instance.AddInputTarget(Filler.GetInstanceID());
         if(timePerChar!= -1.0f)
         {
             SetTimePerChar(timePerChar);
         }
-        yield return Filler.PrintTextAndWait(text);
+        yield return StartCoroutine(Filler.PrintTextAndWait(text));
         if (closeAfterText)
         {
             yield return StartCoroutine(Filler.WaitForUser());

@@ -9,7 +9,7 @@ public class ShopItem : MenuItemBase
 
     [SerializeField]
     Text PriceText;
-    ItemDetails Details;
+    public ItemDetails Details;
 
     SpriteRenderer SRenderer;
 
@@ -18,9 +18,21 @@ public class ShopItem : MenuItemBase
         SRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         Debug.Log($"Purchasing {Details.name} for {Details.Price} Sunflowers");
+
+        if (PlayerData.Seeds >= Details.Price)
+        {
+            PlayerData.Inventory.AddItem(Details);
+            PlayerData.Seeds -= Details.Price;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     public void SetUp(ItemDetails details)
@@ -35,9 +47,9 @@ public class ShopItem : MenuItemBase
         set
         {
             isHighlighted = value;
-            if (Details != null)
+            if (isHighlighted && Details != null)
             {
-                DialogueBoxControl.Instance.PrintText(Details.FlavourText, closeAfterText: false);
+                DialogueBoxControl.Instance.PrintText(Details.FlavourText, closeAfterText: false, timePerChar: 0.005f);
             }
         }
     }

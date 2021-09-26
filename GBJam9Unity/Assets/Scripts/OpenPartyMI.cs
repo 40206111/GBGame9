@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class OpenPartyMI : MenuItemBase
 {
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         PartyControl.Instance.OpenPartyScreen();
+        return true;
     }
 }

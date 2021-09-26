@@ -19,7 +19,7 @@ public abstract class MenuItemBase : MonoBehaviour
         Text = GetComponent<Text>();
     }
 
-    public abstract void PerformAction();
+    public abstract bool PerformAction();
 
     public virtual bool IsHighlighted
     {

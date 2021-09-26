@@ -97,6 +97,11 @@ public class MenuItemManager : MonoBehaviour
         {
             change = 1;
         }
+
+        if (InputAxis == "Horizontal")
+        {
+            change *= -1;
+        }
         return change;
     }
 
@@ -116,9 +121,11 @@ public class MenuItemManager : MonoBehaviour
         if (Input.GetButtonDown("AButton"))
         {
             AudioSource.Play();
-            MenuItems[CurrentIndex].PerformAction();
+            UseActionOutcome(MenuItems[CurrentIndex].PerformAction());
         }
     }
+
+    protected virtual void UseActionOutcome(bool success) { }
 
     protected int CurrentIndex
     {

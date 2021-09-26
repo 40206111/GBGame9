@@ -24,9 +24,10 @@ public class ItemMenuItem : MenuItemBase
         base.Awake();
         ItemNameText = GetComponent<Text>();
     }
-    public override void PerformAction()
+    public override bool PerformAction()
     {
         // ~~~ remove from list, add to inventory
+        return true;
     }
 
     public void SetItem(ItemDetails item)
