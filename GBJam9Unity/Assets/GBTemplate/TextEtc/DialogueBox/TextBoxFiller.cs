@@ -78,7 +78,13 @@ public class TextBoxFiller : MonoBehaviour
              */
 
             int charWidth = info.advance;
-            if (testChar.Equals(' '))
+            if (testChar.Equals('\n'))
+            {
+                lastWhitespace = i;
+                chars[i] = ' ';
+                currentWidth = rowWidth;
+            }
+            else if (testChar.Equals(' '))
             {
                 lastWhitespace = i;
             }
@@ -101,6 +107,7 @@ public class TextBoxFiller : MonoBehaviour
             {
                 currentWidth += charWidth;
             }
+
         }
 
         // Create line list
