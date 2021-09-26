@@ -20,6 +20,6 @@ MonoBehaviour:
   Energy: 0
   Name: Diamond  Claw
   ItemType: 4
-  FlavourText: Looking sharp.
+  FlavourText: Looking sharp enough to cut a tree.
   ItemImage: {fileID: 21300000, guid: 064960049d074df4bb9c994a354506b3, type: 3}
   Price: 25
