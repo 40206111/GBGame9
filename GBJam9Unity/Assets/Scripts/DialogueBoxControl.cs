@@ -133,5 +133,11 @@ public class DialogueBoxControl : MonoBehaviour
             var next = TheQueue.Dequeue();
             PrintTextWithCharacter(next.Text, next.Portrait, next.LeftSide, next.TimePerChar, next.CloseAferText);
         }
+        else
+        {
+            LeftPortrait.sprite = EmptyPortrait;
+            RightPortrait.sprite = EmptyPortrait;
+        }
+
     }
 }
