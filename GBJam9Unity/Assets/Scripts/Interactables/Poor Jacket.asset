@@ -15,9 +15,11 @@ MonoBehaviour:
   MaxHealth: 0
   PhysicalDamage: 0
   MagicDamage: 0
-  PhysicalResistance: 0
+  PhysicalResistance: 3
   MagicResistance: 0
   Energy: 0
   Name: Poor Jacket
   ItemType: 1
   FlavourText: Spicy
+  ItemImage: {fileID: 0}
+  Price: 0

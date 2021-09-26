@@ -16,7 +16,7 @@ MonoBehaviour:
   PhysicalDamage: 0
   MagicDamage: 0
   PhysicalResistance: 0
-  MagicResistance: 0
+  MagicResistance: 3
   Energy: 0
   Name: Poor Helmet
   ItemType: 0
