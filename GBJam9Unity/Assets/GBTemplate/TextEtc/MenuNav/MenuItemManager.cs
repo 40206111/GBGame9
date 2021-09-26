@@ -35,7 +35,7 @@ public class MenuItemManager : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (!GameManager.Instance.IsActiveInputTarget(GetInstanceID()))
+        if (!GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
         {
             return;
         }
@@ -50,12 +50,13 @@ public class MenuItemManager : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        GameManager.Instance.AddInputTarget(GetInstanceID());
+        GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+        JustHighlight(CurrentIndex);
     }
 
     protected virtual void OnDisable()
     {
-        GameManager.Instance.RemoveInputTarget(GetInstanceID());
+        GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
     }
 
     protected virtual void CleanUp()
