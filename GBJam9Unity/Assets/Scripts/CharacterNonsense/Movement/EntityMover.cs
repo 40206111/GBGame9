@@ -110,9 +110,14 @@ public class EntityMover : MonoBehaviour
             dir = Vector2Int.down;
         }
         FacingDirection = dir;
-        Animator.SetInteger("Facing", FacingValues[dir]);
-        Animator.SetFloat("FacingX", dir.x);
-        Animator.SetFloat("FacingY", dir.y);
+        RefreshFacingForAnimator();
+    }
+
+    public void RefreshFacingForAnimator()
+    {
+        Animator.SetInteger("Facing", FacingValues[FacingDirection]);
+        Animator.SetFloat("FacingX", FacingDirection.x);
+        Animator.SetFloat("FacingY", FacingDirection.y);
     }
 
     private void Update()

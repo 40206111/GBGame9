@@ -92,5 +92,11 @@ public class PlayerActions : MonoBehaviour
     public void SwapActiveChicken(eChickenClass chickClass)
     {
         Debug.Log($"Swapping chickens is definitely coded. Go to chicken: {chickClass}.");
+        if (chickClass == eChickenClass.none)
+        {
+            return;
+        }
+        Pcs.Data.ChangeActiveChicken(chickClass);
+        Pcs.Mover.RefreshFacingForAnimator();
     }
 }
