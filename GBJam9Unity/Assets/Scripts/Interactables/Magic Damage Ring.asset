@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 597aa937297724f4c99bdc4ebef8b535, type: 3}
-  m_Name: Socks
+  m_Name: Magic Damage Ring
   m_EditorClassIdentifier: 
   MaxHealth: 0
   PhysicalDamage: 0
-  MagicDamage: 0
-  PhysicalResistance: 2
+  MagicDamage: 5
+  PhysicalResistance: 0
   MagicResistance: 0
   Energy: 0
-  Name: Polka Socks
-  ItemType: 3
-  FlavourText: Polka dots are my favourite.
-  ItemImage: {fileID: 21300000, guid: 5d2be865abf4ef34891757377d20d23b, type: 3}
-  Price: 15
+  Name: Magic Ring
+  ItemType: 4
+  FlavourText: Don't know how this magic stuff works... magic I guess
+  ItemImage: {fileID: 21300000, guid: 2b0618e2e3da1ac4e8fdaf23e52adc57, type: 3}
+  Price: 10

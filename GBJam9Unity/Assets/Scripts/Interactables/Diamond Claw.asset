@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Diamond Claw
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  PhysicalDamage: 0
+  PhysicalDamage: 15
   MagicDamage: 0
   PhysicalResistance: 0
   MagicResistance: 0
