@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 114551893}
   - component: {fileID: 114551892}
   - component: {fileID: 114551894}
+  - component: {fileID: 114551895}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Untagged
@@ -443,6 +444,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.55818176, y: 0.23983765}
   m_EdgeRadius: 0
+--- !u!114 &114551895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114551891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f146b204ac59b44b32ef8e3f7c0d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118254164
 GameObject:
   m_ObjectHideFlags: 0
@@ -41805,7 +41818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee709f4b9bdc85f469e85b97f7b31a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WakeUpText: Clucking Hell!!! What the actual ever loving cluck is going on!!!!!!!!
+  WakeUpText: Huh? Where am I? What the actual ever loving cluck is going on!!!!!!!!
 --- !u!1 &1623965792
 GameObject:
   m_ObjectHideFlags: 0
