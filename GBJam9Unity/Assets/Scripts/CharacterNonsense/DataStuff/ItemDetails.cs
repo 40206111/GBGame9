@@ -12,4 +12,13 @@ public class ItemDetails : BaseStatBlock
     public string FlavourText = "Spicy";
     public Sprite ItemImage;
     public int Price;
+
+    public override string ToString()
+    {
+        string outString =
+            $"Max Health: {MaxHealth}   Stamina: {Energy}\n" +
+            $"Phys Attck: {PhysicalDamage}   Mag Atck: {MagicDamage}\n" +
+            $"Phys Def  : {PhysicalResistance}   Mag Def : {MagicResistance}";
+        return outString;
+    }
 }

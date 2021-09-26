@@ -6,6 +6,6 @@ public class OpenPartyMI : MenuItemBase
 {
     public override void PerformAction()
     {
-        Debug.Log("This is where we open the party.");
+        PartyControl.Instance.OpenPartyScreen();
     }
 }

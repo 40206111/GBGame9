@@ -14,6 +14,8 @@ public class MenuItemManager : MonoBehaviour
     [SerializeField]
     protected AudioSource AudioSource;
     protected Vector2 ArrowValues;
+    [SerializeField]
+    protected GameObject InputKey = null;
 
     // Start is called before the first frame update
     protected void Start()
@@ -35,7 +37,7 @@ public class MenuItemManager : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (!GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
+        if (!IsInputTarget())
         {
             return;
         }
@@ -46,6 +48,21 @@ public class MenuItemManager : MonoBehaviour
         int change = GetChangeFromInput();
         ChangeSelectedMenuItem(change);
         CheckForAButton();
+    }
+
+    protected virtual bool IsInputTarget()
+    {
+        int id;
+        if(InputKey != null)
+        {
+            id = InputKey.GetInstanceID();
+        }
+        else
+        {
+            id = gameObject.GetInstanceID();
+        }
+
+        return GameManager.Instance.IsActiveInputTarget(id);
     }
 
     protected virtual void OnEnable()
@@ -59,7 +76,7 @@ public class MenuItemManager : MonoBehaviour
         GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
     }
 
-    protected virtual void CleanUp()
+    public virtual void CleanUp()
     {
         _currentIndex = 0;
         Arrow.SetParent(transform);

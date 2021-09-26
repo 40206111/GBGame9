@@ -8,7 +8,7 @@ public class DialogueBoxControl : MonoBehaviour
     public static DialogueBoxControl Instance { get { return _Instance; } }
     private void Awake()
     {
-        if(_Instance != null && _Instance.gameObject != null)
+        if (_Instance != null && _Instance.gameObject != null)
         {
             Destroy(_Instance.gameObject);
         }
@@ -54,10 +54,11 @@ public class DialogueBoxControl : MonoBehaviour
         }
         GameManager.Instance.AddInputTarget(Filler.GetInstanceID());
         yield return Filler.PrintTextAndWait(text);
-        GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
         if (closeAfterText)
         {
+            yield return StartCoroutine(Filler.WaitForUser());
             Display(false);
         }
+        GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
     }
 }

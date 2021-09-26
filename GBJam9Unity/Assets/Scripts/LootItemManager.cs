@@ -14,7 +14,7 @@ public class LootItemManager : PopulatingMenuManager
 
     protected override void Update()
     {
-        if (!GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
+        if (!IsInputTarget())
         {
             return;
         }
@@ -31,12 +31,18 @@ public class LootItemManager : PopulatingMenuManager
         gameObject.SetActive(lootable != null);
         if (lootable != null)
         {
-            GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+            if (InputKey == null)
+            {
+                GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+            }
             PopulateMenu(lootable.GetItems());
         }
         else
         {
-            GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
+            if (InputKey == null)
+            {
+                GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
+            }
         }
     }
 }

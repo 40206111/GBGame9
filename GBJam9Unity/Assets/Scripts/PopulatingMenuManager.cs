@@ -18,7 +18,7 @@ public class PopulatingMenuManager : MenuItemManager
 
     protected override void Update()
     {
-        if (!GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
+        if (!IsInputTarget())
         {
             return;
         }
@@ -55,7 +55,7 @@ public class PopulatingMenuManager : MenuItemManager
         return index >= 0;
     }
 
-    protected override void CleanUp()
+    public override void CleanUp()
     {
         base.CleanUp();
         ItemsScrolled = 0;
@@ -88,7 +88,7 @@ public class PopulatingMenuManager : MenuItemManager
         MoveTextHolder(EntryHeight * difference);
     }
 
-    protected void MoveTextHolder(int amount)
+    protected virtual void MoveTextHolder(int amount)
     {
         ItemHolder.anchoredPosition += (Vector2.up * amount);
     }

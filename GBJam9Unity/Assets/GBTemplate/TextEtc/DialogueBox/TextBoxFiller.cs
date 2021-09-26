@@ -184,11 +184,11 @@ public class TextBoxFiller : MonoBehaviour
                 }
             }
 
-            yield return StartCoroutine(WaitForUser());
 
             // Move all lines up 1, make the bottom one blank
             if (textProgress < chars.Length)
             {
+                yield return StartCoroutine(WaitForUser());
                 for (int i = 0; i < lines.Count - 1; ++i)
                 {
                     lines[i] = lines[i + 1];
