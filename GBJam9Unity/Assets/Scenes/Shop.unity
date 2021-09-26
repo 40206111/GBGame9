@@ -123,42 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &177585760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 177585761}
-  m_Layer: 5
-  m_Name: ArowHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &177585761
+--- !u!224 &10029261 stripped
 RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 177585761, guid: 736e56291862aa64baacab3e88407c99, type: 3}
+  m_PrefabInstance: {fileID: 1980405601}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177585760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1866922845}
-  m_Father: {fileID: 6622614125699455466}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 36}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &177585761 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 177585761, guid: 736e56291862aa64baacab3e88407c99, type: 3}
+  m_PrefabInstance: {fileID: 6622614125699455465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &295025642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5157226678281296214, guid: 736e56291862aa64baacab3e88407c99, type: 3}
@@ -415,6 +389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &775489608 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 177585761, guid: 736e56291862aa64baacab3e88407c99, type: 3}
+  m_PrefabInstance: {fileID: 1271770463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &969975341
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +486,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1520626277}
+  - {fileID: 1866922845}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -630,6 +610,7 @@ GameObject:
   - component: {fileID: 1192708083}
   - component: {fileID: 1192708084}
   - component: {fileID: 1192708085}
+  - component: {fileID: 1192708086}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -717,9 +698,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531e4d3a54f31334da696254cb39f5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpecialItem: {fileID: 1401226058}
-  DefenseItem: {fileID: 514593960}
-  AttackItem: {fileID: 726454794}
+  MenuLoops: 1
+  MenuItems:
+  - {fileID: 1401226058}
+  - {fileID: 514593960}
+  - {fileID: 726454794}
+  Arrow: {fileID: 1866922845}
+  AudioSource: {fileID: 1192708086}
+  InputKey: {fileID: 0}
+  InputAxis: Horizontal
   SpecialItemPool: {fileID: 11400000, guid: 685c2b3b6a7b3e446af29eb326536fac, type: 2}
   DefenseItemPool: {fileID: 11400000, guid: 6ec9e23eed86f874e90a14b7533ef0ef, type: 2}
   AttackItemPool: {fileID: 11400000, guid: 9fd0aa6ca94461a46862cdda335d5343, type: 2}
@@ -752,6 +739,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transition: 11
   FadeTime: 1
+--- !u!82 &1192708086
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192708080}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c669704c2e5c79a4eb4764c196efaaf5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1263012340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,6 +894,10 @@ PrefabInstance:
       propertyPath: PriceText
       value: 
       objectReference: {fileID: 767511621}
+    - target: {fileID: 4144450948094156267, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
+      propertyPath: ArrowHolder
+      value: 
+      objectReference: {fileID: 10029261}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
 --- !u!1001 &1271770463
@@ -974,6 +1061,10 @@ PrefabInstance:
       propertyPath: PriceText
       value: 
       objectReference: {fileID: 295025642}
+    - target: {fileID: 4144450948094156267, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
+      propertyPath: ArrowHolder
+      value: 
+      objectReference: {fileID: 177585761}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
 --- !u!114 &1401226058 stripped
@@ -1180,12 +1271,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 177585761}
-  m_RootOrder: 0
+  m_Father: {fileID: 969975345}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -6, y: 30}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1866922846
@@ -1304,6 +1395,10 @@ PrefabInstance:
       propertyPath: PriceText
       value: 
       objectReference: {fileID: 640116576}
+    - target: {fileID: 4144450948094156267, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
+      propertyPath: ArrowHolder
+      value: 
+      objectReference: {fileID: 775489608}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4376a10a6f45b464181cf142bd7d6789, type: 3}
 --- !u!1001 &1980405601
@@ -1502,18 +1597,6 @@ PrefabInstance:
     - target: {fileID: 2728593085221761307, guid: 736e56291862aa64baacab3e88407c99, type: 3}
       propertyPath: m_Name
       value: ItemDesc
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157226678281296214, guid: 736e56291862aa64baacab3e88407c99, type: 3}
-      propertyPath: m_FontData.m_RichText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5157226678281296214, guid: 736e56291862aa64baacab3e88407c99, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6024610899750708390, guid: 736e56291862aa64baacab3e88407c99, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736e56291862aa64baacab3e88407c99, type: 3}

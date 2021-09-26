@@ -16,6 +16,8 @@ public class MenuItemManager : MonoBehaviour
     protected Vector2 ArrowValues;
     [SerializeField]
     protected GameObject InputKey = null;
+    [SerializeField]
+    protected string InputAxis = "Vertical";
 
     // Start is called before the first frame update
     protected void Start()
@@ -27,7 +29,7 @@ public class MenuItemManager : MonoBehaviour
         }
     }
 
-    protected void JustHighlight(int index)
+    protected virtual void JustHighlight(int index)
     {
         MenuItems[index].IsHighlighted = true;
         Arrow.SetParent(MenuItems[index].transform);
@@ -85,7 +87,7 @@ public class MenuItemManager : MonoBehaviour
 
     protected virtual int GetChangeFromInput()
     {
-        float vert = Input.GetAxisRaw("Vertical") * (Input.GetButtonDown("Vertical") ? 1.0f : 0.0f);
+        float vert = Input.GetAxisRaw(InputAxis) * (Input.GetButtonDown(InputAxis) ? 1.0f : 0.0f);
         int change = 0;
         if (vert > 0)
         {

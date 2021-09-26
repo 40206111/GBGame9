@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopControl : MonoBehaviour
+public class ShopControl : MenuItemManager
 {
-    [SerializeField]
     ShopItem SpecialItem;
-    [SerializeField]
     ShopItem DefenseItem;
-    [SerializeField]
     ShopItem AttackItem;
 
     [SerializeField]
@@ -22,26 +19,28 @@ public class ShopControl : MonoBehaviour
     string ShopText;
 
 
-    private void Start()
+    protected void Start()
     {
+        base.Start();
+        SpecialItem = MenuItems[0] as ShopItem;
+        DefenseItem = MenuItems[1] as ShopItem;
+        AttackItem = MenuItems[2] as ShopItem;
         PopulateShop();
-        DialogueBoxControl.Instance.PrintText(ShopText, closeAfterText: false);
+        StartCoroutine(WaitForShopKeeperToFinish());
     }
 
-    private void Update()
+    IEnumerator WaitForShopKeeperToFinish()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SpecialItem.Selected();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DefenseItem.Selected();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            AttackItem.Selected();
-        }
+        yield return StartCoroutine(DialogueBoxControl.Instance.PrintTextAndWait(ShopText, closeAfterText: true));
+
+        (MenuItems[CurrentIndex] as ShopItem).IsHighlighted = true;
+    }
+
+    protected override void JustHighlight(int index)
+    {
+       (MenuItems[index] as ShopItem).IsHighlighted = true;
+        Arrow.SetParent((MenuItems[index] as ShopItem).ArrowHolder);
+        Arrow.localPosition = Vector2.zero;
     }
 
     private void PopulateShop()
@@ -62,13 +61,15 @@ public class ShopControl : MonoBehaviour
 
 
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
-    private void OnEnable()
+    protected void OnEnable()
     {
+        base.OnEnable();
         DebugConsole.ConsoleEvent += OnDebugConsole;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
+        base.OnDisable();
         DebugConsole.ConsoleEvent -= OnDebugConsole;
     }
 
