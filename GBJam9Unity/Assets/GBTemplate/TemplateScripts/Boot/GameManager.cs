@@ -72,11 +72,6 @@ public class GameManager : MonoBehaviour
         ActiveScene = "Boot";
         ActiveSceneIndex = SceneManager.GetSceneByName(ActiveScene).buildIndex;
 
-        if (Shop == null)
-        {
-            SceneManager.LoadSceneAsync("Shop", LoadSceneMode.Additive);
-        }
-
         GameState = eGameState.Playing;
     }
 
