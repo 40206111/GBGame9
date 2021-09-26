@@ -121,7 +121,7 @@ public class ShopControl : MenuItemManager
         var menuItem = (MenuItems[CurrentIndex] as ShopItem);
         ItemNameGameObject.gameObject.SetActive(true);
         menuItem.IsHighlighted = true;
-        ItemNameText.text = menuItem.Details.name;
+        ItemNameText.text = menuItem.Details.Name;
     }
 
     protected override void JustHighlight(int index)
@@ -131,7 +131,7 @@ public class ShopControl : MenuItemManager
         Arrow.SetParent(menuItem.ArrowHolder);
         if (menuItem.Details != null)
         {
-            ItemNameText.text = menuItem.Details.name;
+            ItemNameText.text = menuItem.Details.Name;
         }
         Arrow.localPosition = Vector2.zero;
     }
@@ -174,7 +174,7 @@ public class ShopControl : MenuItemManager
             int random = Random.Range(0, SpecialItemPool.Items.Count);
             var newItem = SpecialItemPool.Items[random];
 
-            while (newItem.name == SpecialItem.Details.name &&
+            while (newItem.Name == SpecialItem.Details.Name &&
                 SpecialItemPool.Items.Count > 1)
             {
                 random = Random.Range(0, SpecialItemPool.Items.Count);
@@ -188,7 +188,7 @@ public class ShopControl : MenuItemManager
             int random = Random.Range(0, DefenseItemPool.Items.Count);
             var newItem = DefenseItemPool.Items[random];
 
-            while (newItem.name == DefenseItem.Details.name &&
+            while (newItem.Name == DefenseItem.Details.Name &&
                 DefenseItemPool.Items.Count > 1)
             {
                 random = Random.Range(0, DefenseItemPool.Items.Count);
@@ -202,7 +202,7 @@ public class ShopControl : MenuItemManager
             int random = Random.Range(0, AttackItemPool.Items.Count);
             var newItem = AttackItemPool.Items[random];
 
-            while (newItem.name == AttackItem.Details.name &&
+            while (newItem.Name == AttackItem.Details.Name &&
                 AttackItemPool.Items.Count > 1)
             {
                 random = Random.Range(0, AttackItemPool.Items.Count);

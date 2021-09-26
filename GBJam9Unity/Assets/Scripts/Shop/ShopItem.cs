@@ -20,7 +20,7 @@ public class ShopItem : MenuItemBase
 
     public override bool PerformAction()
     {
-        Debug.Log($"Purchasing {Details.name} for {Details.Price} Sunflowers");
+        Debug.Log($"Purchasing {Details.Name} for {Details.Price} Sunflowers");
 
         if (PlayerData.Seeds >= Details.Price)
         {
