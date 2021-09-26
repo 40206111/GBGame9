@@ -20,6 +20,6 @@ MonoBehaviour:
   Energy: 0
   Name: A Knife!
   ItemType: 5
-  FlavourText: Good for chopping vegitables
+  FlavourText: Good for chopping vegetables
   ItemImage: {fileID: 21300000, guid: 4ad4759e0ed64674cbe31341fcdb4c10, type: 3}
   Price: 10
