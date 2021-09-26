@@ -71,6 +71,8 @@ MonoBehaviour:
     ChickenSprite: {fileID: 8678448789981272047, guid: a7003ff3f60bf8043a939741ed12e07b, type: 3}
   - ChickenClass: 2
     ChickenSprite: {fileID: 8678448789981272047, guid: 62b32e724e5e0e74cbf54f41806f6272, type: 3}
+  - ChickenClass: -1
+    ChickenSprite: {fileID: 21300000, guid: 83a9811ff03ac00409e2d73ab70f0bb2, type: 3}
 --- !u!114 &5655545328719320152
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,13 +34,18 @@ public class ChickenSelectControl : MonoBehaviour
     {
         GameManager.Instance.AddInputTarget(GetInstanceID());
         MenuContainer.SetActive(true);
-        foreach(ChickSelectInfoFiller chicken in Chickens)
+        foreach (ChickSelectInfoFiller chicken in Chickens)
         {
             chicken.FillInfo();
+            if(chicken.ChickenClass == PlayerData.ActiveChicken)
+            {
+                SelectedIndex = Chickens.FindIndex(x => x == chicken);
+                JustHighlight();
+            }
         }
 
         int finalIndex = -1;
-        while(finalIndex == -1)
+        while (finalIndex == -1)
         {
             if (!GameManager.Instance.IsActiveInputTarget(GetInstanceID()))
             {
@@ -89,12 +94,25 @@ public class ChickenSelectControl : MonoBehaviour
         int before = SelectedIndex;
 
         SelectedIndex = Mathf.Clamp(SelectedIndex + change, 0, Chickens.Count - 1);
+        if (!Chickens[SelectedIndex].ChickenAvailable)
+        {
+            SelectedIndex = Mathf.Clamp(SelectedIndex + change, 0, Chickens.Count - 1);
+            if (!Chickens[SelectedIndex].ChickenAvailable)
+            {
+                SelectedIndex = before;
+            }
+        }
 
-        if(SelectedIndex == before)
+        if (SelectedIndex == before)
         {
             return;
         }
 
+        JustHighlight();
+    }
+
+    private void JustHighlight()
+    {
         Vector2 arrowPos = Arrow.anchoredPosition;
         Arrow.SetParent(Chickens[SelectedIndex].transform);
         Arrow.anchoredPosition = arrowPos;
