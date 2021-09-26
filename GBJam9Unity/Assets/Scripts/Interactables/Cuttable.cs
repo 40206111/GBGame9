@@ -22,14 +22,19 @@ public class Cuttable : MonoBehaviour, IInteractable
             if (random != 0)
             {
                 string addS = random == 1 ? "" : "s";
-                DialogueBoxControl.Instance.PrintText($"Ooh {random} Sunflower Seed{addS}!");
+                PrintToDialogue($"Ooh {random} Sunflower Seed{addS}!");
                 PlayerData.Seeds += random;
             }
 
         }
         //else
         {
-            DialogueBoxControl.Instance.PrintText("I reckon I could cut that down... if I had the right tool");
+            PrintToDialogue("I reckon I could cut that down... if I had the right tool");
         }
+    }
+
+    private void PrintToDialogue(string txt)
+    {
+        DialogueBoxControl.Instance.PrintText(txt, closeAfterText: true);
     }
 }

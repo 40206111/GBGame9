@@ -40320,6 +40320,10 @@ PrefabInstance:
       propertyPath: FollowTarget
       value: 
       objectReference: {fileID: 58507771}
+    - target: {fileID: 1832293302, guid: a262a800a1494554ea095e3d00bd19b6, type: 3}
+      propertyPath: IsMainCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5476227272999222417, guid: a262a800a1494554ea095e3d00bd19b6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -62666,7 +62670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092740450964789307, guid: 9f5cbb4c372e4c14eab581a2e69ef3c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3092740450964789307, guid: 9f5cbb4c372e4c14eab581a2e69ef3c3, type: 3}
       propertyPath: m_LocalPosition.z

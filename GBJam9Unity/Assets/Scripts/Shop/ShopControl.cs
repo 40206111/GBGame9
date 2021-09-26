@@ -59,6 +59,10 @@ public class ShopControl : MenuItemManager
             FirstFrame = false;
             return;
         }
+        if (!IsInputTarget())
+        {
+            return;
+        }
         base.Update();
         CheckForBButton();
     }
@@ -86,6 +90,8 @@ public class ShopControl : MenuItemManager
         GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
         OldCamera.enabled = true;
         ShopCamera.enabled = false;
+        CameraFollow.ActiveCamera = OldCamera;
+        DialogueBoxControl.Instance.Display(false);
         GameManager.Instance.QueueTransition(TransitionOut, FadeTime);
         GameManager.Instance.TransController.RunTransition(true);
     }
@@ -103,9 +109,10 @@ public class ShopControl : MenuItemManager
     void LoadShop()
     {
         RenderTransition.FinishedTransitionDel -= LoadShop;
-        OldCamera = Camera.main;
+        OldCamera = CameraFollow.MainCamera;
         OldCamera.enabled = false;
         ShopCamera.enabled = true;
+        CameraFollow.ActiveCamera = ShopCamera;
         PopulateShop();
         Merchant.SetBool("Go", true);
         GameManager.Instance.QueueTransition(TransitionIn, FadeTime);
