@@ -13,7 +13,7 @@ public class Cuttable : MonoBehaviour, IInteractable
 
     public void RunInteraction()
     {
-        //if player has equipped item that cuts on current chicken
+        if (CanCut())
         {
             animator.SetTrigger("Cut");
             BoxCollider.enabled = false;
@@ -27,10 +27,25 @@ public class Cuttable : MonoBehaviour, IInteractable
             }
 
         }
-        //else
+        else
         {
-            PrintToDialogue("I reckon I could cut that down... if I had the right tool");
+            PrintToDialogue("I reckon I could cut that down... if I had the right tool.");
         }
+    }
+
+    private bool CanCut()
+    {
+        bool outBool = false;
+        foreach(EquiptmentSlot es in PlayerData.GetChickenData(PlayerData.ActiveChicken).EquippedItems.GetAllEquipped())
+        {
+            if (ItemsThatCut.Contains(es.Equiptment))
+            {
+                outBool = true;
+                break;
+            }
+        }
+
+        return outBool;
     }
 
     private void PrintToDialogue(string txt)
