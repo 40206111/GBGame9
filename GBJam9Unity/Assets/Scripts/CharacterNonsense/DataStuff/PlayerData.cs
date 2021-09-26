@@ -9,7 +9,7 @@ public enum eKeyEvents
     None = 1 << 0,
     WokenUp = 1 << 1,
     MetMage = 1 << 2,
-    MetRanger = 1 << 3
+    MetRanger = 1 << 3,
 }
 
 public static class PlayerData

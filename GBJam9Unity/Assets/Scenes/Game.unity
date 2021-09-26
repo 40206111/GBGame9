@@ -41805,6 +41805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee709f4b9bdc85f469e85b97f7b31a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WakeUpText: Clucking Hell!!! What the actual ever loving cluck is going on!!!!!!!!
 --- !u!1 &1623965792
 GameObject:
   m_ObjectHideFlags: 0
@@ -62705,21 +62706,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024508444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29aea89dbb8b1e14d8ab30e4d6299cf7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e612da8cf24dfb4ea67e420a1c60154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
-  - {fileID: 11400000, guid: 3b638b27928b8154c91b26e8e8314f55, type: 2}
-  - {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
-  - {fileID: 11400000, guid: 3b638b27928b8154c91b26e8e8314f55, type: 2}
-  - {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
-  - {fileID: 11400000, guid: 3b638b27928b8154c91b26e8e8314f55, type: 2}
-  - {fileID: 11400000, guid: 24f1a9b8a5eef394199037e226010081, type: 2}
-  - {fileID: 11400000, guid: 15614e13e75482d48a72a4594e1d6e49, type: 2}
-  - {fileID: 11400000, guid: 8e241eb141447954b884bd64e53a6ffb, type: 2}
-  - {fileID: 11400000, guid: be20dccb6421fec49bfa213800ad843d, type: 2}
-  LootedSprite: {fileID: 0}
+  WhatsInThePot: {fileID: 11400000, guid: 1c44b74659cb2454b9a6bcb58ae83f45, type: 2}
+  Animator: {fileID: 2024508449}
+  Mage: {fileID: 2072976720}
+  BoxCollder: {fileID: 2024508447}
 --- !u!95 &2024508449
 Animator:
   serializedVersion: 3
@@ -62750,7 +62743,8 @@ GameObject:
   - component: {fileID: 2072976721}
   - component: {fileID: 2072976723}
   - component: {fileID: 2072976722}
-  m_Layer: 0
+  - component: {fileID: 2072976724}
+  m_Layer: 7
   m_Name: Mage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62848,6 +62842,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2072976724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072976720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b2b1047afc58748b618afecbaeec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2131569029
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ public class DialogueBoxControl : MonoBehaviour
 
     Queue<DialogueDetails> TheQueue = new Queue<DialogueDetails>();
 
+    public int QueueCount => TheQueue.Count;
 
     public void ResetSpeed()
     {
@@ -89,8 +90,8 @@ public class DialogueBoxControl : MonoBehaviour
         else
         {
             LeftPortrait.sprite = leftSide ? Portraits[(int)character - 1] : EmptyPortrait;
+            RightPortrait.sprite = !leftSide ? Portraits[(int)character -1] : EmptyPortrait;
         }
-        RightPortrait.sprite = !leftSide ? Portraits[(int)character -1] : EmptyPortrait;
         StartCoroutine(PrintTextAndWait(text, timePerChar, closeAfterText));
     }
 
