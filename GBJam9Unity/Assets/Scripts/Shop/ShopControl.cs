@@ -40,6 +40,7 @@ public class ShopControl : MenuItemManager
     Animator Merchant;
 
     bool ShopOpen = false;
+    bool FirstFrame = true;
 
     protected override void Start()
     {
@@ -53,6 +54,11 @@ public class ShopControl : MenuItemManager
 
     protected override void Update()
     {
+        if (FirstFrame)
+        {
+            FirstFrame = false;
+            return;
+        }
         base.Update();
         CheckForBButton();
     }
@@ -88,6 +94,7 @@ public class ShopControl : MenuItemManager
     {
         if (ShopOpen) return;
         ShopOpen = true;
+        FirstFrame = true;
         GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
         GameManager.Instance.QueueTransition(TransitionOut, FadeTime);
         GameManager.Instance.TransController.RunTransition(false, method: LoadShop);

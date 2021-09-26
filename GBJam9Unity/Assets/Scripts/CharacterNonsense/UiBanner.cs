@@ -15,6 +15,16 @@ public class UiBanner : MonoBehaviour
     int CurrentHealth;
     int CurrentEnergy;
     int CurrentSeeds;
+    eChickenClass CurrentChicken;
+
+    private void Start()
+    {
+        CurrentHealth = PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentHealth;
+        Health.text = $"{CurrentHealth}/{PlayerData.GetChickenData(PlayerData.ActiveChicken).GetMaxHealth()}";
+
+        CurrentEnergy = PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentStamina;
+        Energy.text = $"{CurrentEnergy}/{PlayerData.GetChickenData(PlayerData.ActiveChicken).GetMaxStamina()}";
+    }
 
     void Update()
     {
@@ -25,17 +35,22 @@ public class UiBanner : MonoBehaviour
         }
 
 
-        if (PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentHealth != CurrentHealth)
+        if (PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentHealth != CurrentHealth || CurrentChicken != PlayerData.ActiveChicken)
         {
             CurrentHealth = PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentHealth;
             Health.text = $"{CurrentHealth}/{PlayerData.GetChickenData(PlayerData.ActiveChicken).GetMaxHealth()}";
         }
 
 
-        if (PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentStamina != CurrentEnergy)
+        if (PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentStamina != CurrentEnergy || CurrentChicken != PlayerData.ActiveChicken)
         {
             CurrentEnergy = PlayerData.GetChickenData(PlayerData.ActiveChicken).CurrentStamina;
             Energy.text = $"{CurrentEnergy}/{PlayerData.GetChickenData(PlayerData.ActiveChicken).GetMaxStamina()}";
+        }
+
+        if (CurrentChicken != PlayerData.ActiveChicken)
+        {
+            CurrentChicken = PlayerData.ActiveChicken;
         }
     }
 }
