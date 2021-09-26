@@ -6,6 +6,8 @@ public class Lootable : MonoBehaviour,IInteractable
 {
     [SerializeField]
     List<ItemDetails> Items = new List<ItemDetails>();
+    [SerializeField]
+    Sprite LootedSprite;
 
     public void RunInteraction()
     {
@@ -21,6 +23,10 @@ public class Lootable : MonoBehaviour,IInteractable
         {
             ItemDetails outItem = Items[index];
             Items.RemoveAt(index);
+            if (Items.Count == 0 && LootedSprite != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = LootedSprite;
+            }
             return outItem;
         }
         return null;

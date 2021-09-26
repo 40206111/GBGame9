@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 44df1472cb2590a4282f72ac03983a26
+guid: 985d7484690f42b47aa4b06cee157999
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 480048323589173415
-    second: Skull house_0
+      213: -3254638050610970185
+    second: long cactus_0
   - first:
-      213: -7120651964060699955
-    second: Skull house_1
-  - first:
-      213: 6754665694302699830
-    second: Skull house_2
+      213: -8478159624459629600
+    second: long cactus_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,64 +109,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skull house_0
+      name: long cactus_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b10dd0dfe335d2d0800000000000000
+      internalID: -3254638050610970185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: long cactus_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 112
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0fd8a286979a600800000000000000
-      internalID: 480048323589173415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skull house_1
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 112
-        height: 112
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc279f8f3cc5e2d90800000000000000
-      internalID: -7120651964060699955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skull house_2
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 112
-        height: 112
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6310e6549a46dbd50800000000000000
-      internalID: 6754665694302699830
+      spriteID: 0eb4603adb6875a80800000000000000
+      internalID: -8478159624459629600
       vertices: []
       indices: 
       edges: []
