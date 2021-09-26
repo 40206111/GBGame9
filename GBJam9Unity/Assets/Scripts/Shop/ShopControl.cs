@@ -134,7 +134,7 @@ public class ShopControl : MenuItemManager
         if (success)
         {
             var menuItem = (MenuItems[CurrentIndex] as ShopItem);
-            StartCoroutine(WaitForShopKeeperToFinish($"Purchasing {menuItem.Details.name} for {menuItem.Details.Price} Sunflowers..."));
+            StartCoroutine(WaitForShopKeeperToFinish($"Purchasing {menuItem.Details.name} for {menuItem.Details.Price} Sunflower seeds!"));
             PopulateItem(CurrentIndex);
         }
         else
