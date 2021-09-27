@@ -9,22 +9,22 @@ public class EquippedMenuManager : PopulatingMenuManager
     protected RectTransform ItemIconsHolder;
 
 
-    public override void PopulateMenu(List<ItemDetails> inDetails)
+    public override void PopulateMenu(List<EquiptmentSlot> inDetails)
     {
         CleanUp();
         List<ItemMenuItem> items = new List<ItemMenuItem>();
         int itemCount = 0;
-        foreach (ItemDetails id in inDetails)
+        foreach (EquiptmentSlot es in inDetails)
         {
 
             ItemMenuItem imi = Instantiate(LootMenuItemPrefab, ItemHolder).GetComponent<ItemMenuItem>();
-            if (id == null)
+            if (es.Equiptment == null)
             {
-                imi.GetComponent<Text>().text = $"No {GoodEnumName(GetTypeFromInt(itemCount))}";
+                imi.GetComponent<Text>().text = $"No {GoodEnumName(es.RequiredType)}";
             }
             else
             {
-                imi.SetItem(id);
+                imi.SetItem(es);
             }
             imi.transform.localPosition += (Vector3.down * (InitialGap + EntryHeight * items.Count));
             items.Add(imi);
@@ -86,9 +86,9 @@ public class EquippedMenuManager : PopulatingMenuManager
     protected virtual void PrintCurrentItem()
     {
         ItemMenuItem itemMenuItem = (ItemMenuItem)MenuItems[CurrentIndex];
-        if (itemMenuItem.Item != null)
+        if (itemMenuItem.Slot.Equiptment != null)
         {
-            PrintToDialogue(itemMenuItem.Item.ToString());
+            PrintToDialogue(itemMenuItem.Slot.Equiptment.ToString());
         }
         else
         {

@@ -25,20 +25,20 @@ public class PopulatingMenuManager : MenuItemManager
         base.Update();
     }
 
-    public virtual void PopulateMenu(List<ItemDetails> inDetails)
+    public virtual void PopulateMenu(List<EquiptmentSlot> inDetails)
     {
         CleanUp();
         List<ItemMenuItem> items = new List<ItemMenuItem>();
-        foreach (ItemDetails id in inDetails)
+        foreach (EquiptmentSlot es in inDetails)
         {
-            if (CheckForItem(items, id, out int index))
+            if (CheckForItem(items, es.Equiptment, out int index))
             {
-                items[index].AddToCount(1);
+                items[index].AddToCount(es.Count);
             }
             else
             {
                 ItemMenuItem imi = Instantiate(LootMenuItemPrefab, ItemHolder).GetComponent<ItemMenuItem>();
-                imi.SetItem(id);
+                imi.SetItem(es);
                 imi.transform.localPosition += (Vector3.down * (InitialGap + EntryHeight * items.Count));
                 items.Add(imi);
             }
@@ -51,7 +51,7 @@ public class PopulatingMenuManager : MenuItemManager
 
     protected bool CheckForItem(List<ItemMenuItem> items, ItemDetails item, out int index)
     {
-        index = items.FindIndex(x => x.Item == item);
+        index = items.FindIndex(x => x.Slot.Equiptment == item);
         return index >= 0;
     }
 

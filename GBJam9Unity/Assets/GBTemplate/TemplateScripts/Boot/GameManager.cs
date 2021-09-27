@@ -223,15 +223,28 @@ public class GameManager : MonoBehaviour
     public void AddInputTarget(int id)
     {
         InputTargets.Add(id);
+        //StartCoroutine(DelayedAddInputTarget(id));
     }
+
+    //private IEnumerator DelayedAddInputTarget(int id)
+    //{
+    //    yield return new ();
+    //    InputTargets.Add(id);
+    //}
 
     public void RemoveInputTarget(int id)
     {
         int index = InputTargets.FindLastIndex(x => x == id);
         if (index != -1)
         {
-            InputTargets.RemoveAt(index);
+            StartCoroutine(DelayedRemoveInputTargetAt(index));
         }
+    }
+
+    private IEnumerator DelayedRemoveInputTargetAt(int index)
+    {
+        yield return new WaitForEndOfFrame();
+        InputTargets.RemoveAt(index);
     }
 
     public bool IsActiveInputTarget(int id)

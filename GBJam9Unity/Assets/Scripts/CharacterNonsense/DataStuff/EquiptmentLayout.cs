@@ -14,7 +14,7 @@ public class EquiptmentLayout
         new EquiptmentSlot { RequiredType = eItemType.trinket},
         new EquiptmentSlot { RequiredType = eItemType.trinket}};
 
-
+    // For only slots containing items
     public List<EquiptmentSlot> GetAllEquipped()
     {
         List<EquiptmentSlot> outList = new List<EquiptmentSlot>();
@@ -27,6 +27,25 @@ public class EquiptmentLayout
         foreach (EquiptmentSlot es in TrinketSlots)
         {
             CheckAndAdd(es, ref outList);
+        }
+
+        return outList;
+    }
+
+    // For every slot
+    public List<EquiptmentSlot> GetAllSlots()
+    {
+        List<EquiptmentSlot> outList = new List<EquiptmentSlot>
+        {
+            HeadSlot,
+            BodySlot,
+            LegSlot,
+            FootSlot,
+            WeaponSlot
+        };
+        foreach (EquiptmentSlot es in TrinketSlots)
+        {
+            outList.Add(es);
         }
 
         return outList;
@@ -63,6 +82,7 @@ public class EquiptmentLayout
             outItem = (slot.Equiptment);
         }
         slot.Equiptment = item;
+        slot.Count = 1;
         return outItem;
     }
 }

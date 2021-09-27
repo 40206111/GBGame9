@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lootable : MonoBehaviour,IInteractable
 {
     [SerializeField]
-    List<ItemDetails> Items = new List<ItemDetails>();
+    List<EquiptmentSlot> Items = new List<EquiptmentSlot>();
     [SerializeField]
     Sprite LootedSprite;
 
@@ -16,23 +16,40 @@ public class Lootable : MonoBehaviour,IInteractable
         LootItemManager.Instance.Display(this);
     }
 
-    public ItemDetails TakeItem(string itemName)
+    public EquiptmentSlot TakeItem(string itemName)
     {
-        int index = Items.FindIndex(x => x.Name.Equals(itemName));
+        int index = Items.FindIndex(x => x.Equiptment.Name.Equals(itemName));
         if (index >= 0)
         {
-            ItemDetails outItem = Items[index];
+            EquiptmentSlot outSlot = Items[index];
             Items.RemoveAt(index);
-            if (Items.Count == 0 && LootedSprite != null)
-            {
-                GetComponent<SpriteRenderer>().sprite = LootedSprite;
-            }
+            DoEmptyCheck();
+            return outSlot;
+        }
+        return null;
+    }
+
+    public EquiptmentSlot TakeItem(EquiptmentSlot item)
+    {
+        if (Items.Contains(item))
+        {
+            EquiptmentSlot outItem = Items[Items.FindIndex(x => x.Equiptment == item.Equiptment)];
+            Items.Remove(outItem);
+            DoEmptyCheck();
             return outItem;
         }
         return null;
     }
 
-    public List<ItemDetails> GetItems()
+    private void DoEmptyCheck()
+    {
+        if (Items.Count == 0 && LootedSprite != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = LootedSprite;
+        }
+    }
+
+    public List<EquiptmentSlot> GetItems()
     {
         return Items;
     }

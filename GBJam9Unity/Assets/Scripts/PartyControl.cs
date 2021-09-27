@@ -34,28 +34,30 @@ public class PartyControl : MonoBehaviour
         PopulateFromChicken(eChickenClass.melee);
     }
 
-    private List<ItemDetails> GetItemDetails(eChickenClass chickClass)
+    private List<EquiptmentSlot> GetItemDetails(eChickenClass chickClass)
     {
-        EquiptmentLayout layout = PlayerData.GetChickenData(chickClass).EquippedItems;
-        List<ItemDetails> ids = new List<ItemDetails>
-        {
-            GetItemDetail(layout, eItemType.headPiece),
-            GetItemDetail(layout, eItemType.chestPiece),
-            GetItemDetail(layout, eItemType.legWear),
-            GetItemDetail(layout, eItemType.footWear),
-            GetItemDetail(layout, eItemType.weapon),
-            GetItemDetail(layout, eItemType.trinket, 0),
-            GetItemDetail(layout, eItemType.trinket, 1),
-            GetItemDetail(layout, eItemType.trinket, 2)
-        };
+        /* EquiptmentLayout layout = PlayerData.GetChickenData(chickClass).EquippedItems;
+         List<ItemDetails> ids = new List<ItemDetails>
+         {
+             GetItemDetail(layout, eItemType.headPiece),
+             GetItemDetail(layout, eItemType.chestPiece),
+             GetItemDetail(layout, eItemType.legWear),
+             GetItemDetail(layout, eItemType.footWear),
+             GetItemDetail(layout, eItemType.weapon),
+             GetItemDetail(layout, eItemType.trinket, 0),
+             GetItemDetail(layout, eItemType.trinket, 1),
+             GetItemDetail(layout, eItemType.trinket, 2)
+         };
 
-        return ids;
+         return ids;*/
+
+        return PlayerData.GetChickenData(chickClass).EquippedItems.GetAllSlots();
     }
 
-    private ItemDetails GetItemDetail(EquiptmentLayout layout, eItemType itemType, int trinket = 0)
-    {
-        return layout.GetEquiptmentSlot(itemType, trinket).Equiptment;
-    }
+    //private ItemDetails GetItemDetail(EquiptmentLayout layout, eItemType itemType, int trinket = 0)
+    //{
+    //    return layout.GetEquiptmentSlot(itemType, trinket).Equiptment;
+    //}
 
     public void HidePartyScreen()
     {

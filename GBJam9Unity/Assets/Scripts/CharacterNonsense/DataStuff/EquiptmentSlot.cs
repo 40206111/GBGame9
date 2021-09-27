@@ -1,18 +1,19 @@
-
+[System.Serializable]
 public class EquiptmentSlot
 {
     public eItemType RequiredType = eItemType.none;
     public ItemDetails Equiptment;
     public int Count = 0;
 
-    public ItemDetails AddItem(ItemDetails item)
+    public EquiptmentSlot AddItem(ItemDetails item)
     {
-        ItemDetails outItem = null;
+        EquiptmentSlot outItem = null;
         if(Equiptment == item)
         {
             if (RequiredType != eItemType.none)
             {
-                outItem = Equiptment;
+                outItem.Equiptment = Equiptment;
+                outItem.Count = Count;
             }
             else
             {
@@ -21,13 +22,20 @@ public class EquiptmentSlot
         }
         else
         {
-            outItem = Equiptment;
+            outItem.Equiptment = Equiptment;
+            outItem.Count = Count;
             Equiptment = item;
+            Count = 1;
         }
         return outItem;
     }
 
-    public ItemDetails RemoveItem()
+    public void AddToCount(int value)
+    {
+        Count += value;
+    }
+
+    public ItemDetails SubtractItem()
     {
         ItemDetails outItem = Equiptment;
         Count--;

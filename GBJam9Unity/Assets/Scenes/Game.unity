@@ -923,7 +923,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
+  - RequiredType: -1
+    Equiptment: {fileID: 11400000, guid: 15614e13e75482d48a72a4594e1d6e49, type: 2}
+    Count: 1
+  - RequiredType: -1
+    Equiptment: {fileID: 11400000, guid: c9c2fe159d47a3c4b987b31134886f30, type: 2}
+    Count: 1
   LootedSprite: {fileID: 4705246525205698813, guid: c946de6719b89b247a2d27670df73227, type: 3}
 --- !u!61 &332870659
 BoxCollider2D:
@@ -37712,8 +37717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29aea89dbb8b1e14d8ab30e4d6299cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: 8e241eb141447954b884bd64e53a6ffb, type: 2}
+  Items: []
   LootedSprite: {fileID: 4705246525205698813, guid: c946de6719b89b247a2d27670df73227, type: 3}
 --- !u!212 &700351840
 SpriteRenderer:
@@ -38152,7 +38156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.22229576}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -38163,7 +38167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.5554085}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!212 &853221759
 SpriteRenderer:
@@ -62493,8 +62497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29aea89dbb8b1e14d8ab30e4d6299cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: be20dccb6421fec49bfa213800ad843d, type: 2}
+  Items: []
   LootedSprite: {fileID: 4705246525205698813, guid: c946de6719b89b247a2d27670df73227, type: 3}
 --- !u!212 &2000921236
 SpriteRenderer:
@@ -62963,11 +62966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092740450964789307, guid: 9f5cbb4c372e4c14eab581a2e69ef3c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 42.95
       objectReference: {fileID: 0}
     - target: {fileID: 3092740450964789307, guid: 9f5cbb4c372e4c14eab581a2e69ef3c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28
+      value: 20.33
       objectReference: {fileID: 0}
     - target: {fileID: 3092740450964789307, guid: 9f5cbb4c372e4c14eab581a2e69ef3c3, type: 3}
       propertyPath: m_LocalPosition.z

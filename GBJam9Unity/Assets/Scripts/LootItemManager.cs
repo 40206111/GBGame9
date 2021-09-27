@@ -32,7 +32,7 @@ public class LootItemManager : PopulatingMenuManager
     private void TransferItemToInventory()
     {
         ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
-        PlayerData.Inventory.AddItem(imi.Item);
+        PlayerData.Inventory.AddItem(imi.Slot);
         RemoveMenuItem(imi);
         Destroy(imi.gameObject);
     }
@@ -40,6 +40,11 @@ public class LootItemManager : PopulatingMenuManager
     public void Display(Lootable lootable = null)
     {
         CleanUp();
+        if(lootable?.GetItems().Count == 0)
+        {
+            DialogueBoxControl.Instance.PrintText("Nothing left here.");
+            return;
+        }
         gameObject.SetActive(lootable != null);
         if (lootable != null)
         {
@@ -65,6 +70,5 @@ public class LootItemManager : PopulatingMenuManager
         {
             Display(null);
         }
-
     }
 }
