@@ -130,13 +130,13 @@ public class TextBoxFiller : MonoBehaviour
         int elapsedProgress = -1;
         int lastElapsedProgress = -1;
         // Print whole dialogue
-        while (textProgress < chars.Length)
+        while (Filling && textProgress < chars.Length)
         {
             // Fill lines, wait for input to replace bottom line
-            while (currentFillLine < lines.Count)
+            while (Filling && currentFillLine < lines.Count)
             {
                 lastElapsedProgress = elapsedProgress;
-                while (elapsedProgress == lastElapsedProgress)
+                while (Filling && elapsedProgress == lastElapsedProgress)
                 {
                     yield return null;
                     elapsedTime += Time.deltaTime;
@@ -193,7 +193,7 @@ public class TextBoxFiller : MonoBehaviour
 
 
             // Move all lines up 1, make the bottom one blank
-            if (textProgress < chars.Length)
+            if (Filling && textProgress < chars.Length)
             {
                 yield return StartCoroutine(WaitForUser());
                 for (int i = 0; i < lines.Count - 1; ++i)

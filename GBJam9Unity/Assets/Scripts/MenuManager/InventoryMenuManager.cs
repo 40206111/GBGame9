@@ -85,6 +85,7 @@ public class InventoryMenuManager : PopulatingMenuManager
                         imi.SetItem(newSlot);
                         imi.transform.localPosition += (Vector3.down * (InitialGap + EntryHeight * MenuItems.Count));
                         MenuItems.Add(imi);
+                        PlayerData.Inventory.AddItem(newSlot);
                     }
                     if (MenuItems.Count == 1)
                     {
