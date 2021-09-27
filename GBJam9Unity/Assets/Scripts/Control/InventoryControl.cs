@@ -16,6 +16,8 @@ public class InventoryControl : MonoBehaviour
     InventoryMenuManager Manager;
     [SerializeField]
     GameObject Holder;
+    [SerializeField]
+    FeedbackManager Feeder;
 
 
     private void Update()
@@ -24,10 +26,23 @@ public class InventoryControl : MonoBehaviour
         {
             return;
         }
-        if (Input.GetButtonDown("BButton"))
+        if (Input.GetButtonDown("AButton"))
+        {
+            BeginLittleFeedback();
+        }
+        else if (Input.GetButtonDown("BButton"))
         {
             HideInventory();
         }
+    }
+
+    private void BeginLittleFeedback()
+    {
+        if(Manager.MenuItemCount == 0)
+        {
+            return;
+        }
+        Feeder.ActivateLittleMenu(Manager.FeedbackResponse);
     }
 
     public void ShowInventory()

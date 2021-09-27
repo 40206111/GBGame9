@@ -13,14 +13,21 @@ public class InventoryMenuManager : PopulatingMenuManager
     public override void PopulateMenu(List<EquiptmentSlot> inDetails)
     {
         base.PopulateMenu(inDetails);
-        UpdateInventoryVisuals();
+        if (MenuItems.Count == 0)
+        {
+            DialogueBoxControl.Instance.PrintText("It's empty...");
+        }
+        else
+        {
+            UpdateInventoryVisuals();
+        }
     }
 
     protected override void ChangeSelectedMenuItem(int change, bool force = false)
     {
         int start = CurrentIndex;
         base.ChangeSelectedMenuItem(change, force);
-        if (start != CurrentIndex)
+        if (CurrentIndex != start)
         {
             UpdateInventoryVisuals();
         }
@@ -28,6 +35,7 @@ public class InventoryMenuManager : PopulatingMenuManager
 
     protected virtual void UpdateInventoryVisuals()
     {
+
         ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
         Sprite sprite = imi.Slot.Equiptment.ItemImage;
         if (sprite == null)
@@ -36,5 +44,20 @@ public class InventoryMenuManager : PopulatingMenuManager
         }
         ItemImage.sprite = sprite;
         DialogueBoxControl.Instance.PrintText(imi.Slot.Equiptment.ToString(), timePerChar: 0);
+    }
+
+    public override void FeedbackResponse(eLittleFeedback feedback)
+    {
+        switch (feedback)
+        {
+            case eLittleFeedback.Wear:
+
+                Debug.Log($"Need to wear {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
+                //PlayerData.GetChickenData(PlayerData.ActiveChicken).EquippedItems.EquipItem()
+                break;
+            case eLittleFeedback.Data:
+                Debug.Log($"Need to give info on {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
+                break;
+        }
     }
 }

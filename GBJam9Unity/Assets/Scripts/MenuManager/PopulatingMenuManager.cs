@@ -28,6 +28,10 @@ public class PopulatingMenuManager : MenuItemManager
     public virtual void PopulateMenu(List<EquiptmentSlot> inDetails)
     {
         CleanUp();
+        if(inDetails.Count == 0)
+        {
+            return;
+        }
         List<ItemMenuItem> items = new List<ItemMenuItem>();
         foreach (EquiptmentSlot es in inDetails)
         {

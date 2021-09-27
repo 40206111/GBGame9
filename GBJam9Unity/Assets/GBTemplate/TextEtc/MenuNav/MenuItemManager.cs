@@ -31,6 +31,10 @@ public class MenuItemManager : MonoBehaviour
 
     protected virtual void JustHighlight(int index)
     {
+        if (index < 0 || index >= MenuItems.Count)
+        {
+            return;
+        }
         MenuItems[index].IsHighlighted = true;
         Arrow.SetParent(MenuItems[index].transform);
         Arrow.localPosition = Vector2.zero;
@@ -43,7 +47,7 @@ public class MenuItemManager : MonoBehaviour
         {
             return;
         }
-        if(MenuItems.Count == 0)
+        if (MenuItems.Count == 0)
         {
             return;
         }
@@ -55,7 +59,7 @@ public class MenuItemManager : MonoBehaviour
     protected virtual bool IsInputTarget()
     {
         int id;
-        if(InputKey != null)
+        if (InputKey != null)
         {
             id = InputKey.GetInstanceID();
         }
@@ -127,6 +131,13 @@ public class MenuItemManager : MonoBehaviour
 
     protected virtual void UseActionOutcome(bool success) { }
 
+    public virtual void FeedbackResponse(eLittleFeedback feedback) { }
+
+    public int MenuItemCount
+    {
+        get { return MenuItems.Count; }
+    }
+
     protected int CurrentIndex
     {
         get
@@ -135,6 +146,11 @@ public class MenuItemManager : MonoBehaviour
         }
         set
         {
+            if (MenuItems.Count == 0)
+            {
+                _currentIndex = -1;
+                return;
+            }
             if (MenuLoops)
             {
                 if (value < 0)

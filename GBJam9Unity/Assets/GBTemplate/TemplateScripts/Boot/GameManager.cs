@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum eLittleFeedback { none = -1, Data, Wear, Take, Yes, No }
+
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]

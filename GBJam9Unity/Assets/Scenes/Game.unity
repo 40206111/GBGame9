@@ -37494,10 +37494,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1623489484527178067, guid: 225132c7bade08b44af546568d41339d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1623489484527178070, guid: 225132c7bade08b44af546568d41339d, type: 3}
       propertyPath: m_Camera
       value: 
@@ -37584,10 +37580,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1623489484527178071, guid: 225132c7bade08b44af546568d41339d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4581341847947944080, guid: 225132c7bade08b44af546568d41339d, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
