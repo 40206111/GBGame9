@@ -21,5 +21,5 @@ MonoBehaviour:
   Name: Poor Jacket
   ItemType: 1
   FlavourText: Spicy
-  ItemImage: {fileID: 0}
+  ItemImage: {fileID: 21300000, guid: 83a9811ff03ac00409e2d73ab70f0bb2, type: 3}
   Price: 0

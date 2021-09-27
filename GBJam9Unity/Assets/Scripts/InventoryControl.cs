@@ -24,7 +24,6 @@ public class InventoryControl : MonoBehaviour
         {
             return;
         }
-
     }
 
     public void ShowInventory()

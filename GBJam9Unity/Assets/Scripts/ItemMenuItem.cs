@@ -16,6 +16,7 @@ public class ItemMenuItem : MenuItemBase
             RefreshNumberText();
         }
     }
+    [SerializeField]
     protected Text ItemNameText;
     [SerializeField]
     protected Text ItemCountText;

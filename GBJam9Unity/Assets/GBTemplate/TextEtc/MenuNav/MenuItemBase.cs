@@ -11,7 +11,7 @@ public abstract class MenuItemBase : MonoBehaviour
     Material Highlighted;
 
     protected bool isHighlighted;
-
+    [SerializeField]
     Text Text;
     // Start is called before the first frame update
     protected virtual void Awake()

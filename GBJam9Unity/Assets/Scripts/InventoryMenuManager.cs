@@ -11,9 +11,13 @@ public class InventoryMenuManager : PopulatingMenuManager
 
     protected override void ChangeSelectedMenuItem(int change, bool force = false)
     {
+        int start = CurrentIndex;
         base.ChangeSelectedMenuItem(change, force);
-        ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
-        ItemImage.sprite = imi.Slot.Equiptment.ItemImage;
-        DialogueBoxControl.Instance.PrintText(imi.Slot.ToString(), timePerChar: 0);
+        if (start != CurrentIndex)
+        {
+            ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
+            ItemImage.sprite = imi.Slot.Equiptment.ItemImage;
+            DialogueBoxControl.Instance.PrintText(imi.Slot.Equiptment.ToString(), timePerChar: 0);
+        }
     }
 }
