@@ -28,7 +28,7 @@ public class PopulatingMenuManager : MenuItemManager
     public virtual void PopulateMenu(List<EquiptmentSlot> inDetails)
     {
         CleanUp();
-        if(inDetails.Count == 0)
+        if (inDetails.Count == 0)
         {
             return;
         }
@@ -88,12 +88,12 @@ public class PopulatingMenuManager : MenuItemManager
         {
             difference = CurrentIndex - (ItemsScrolled + VisibleEntries - 2);
         }
-        int clamped = Mathf.Clamp(ItemsScrolled + difference, 0,Mathf.Max(0, MenuItems.Count - (VisibleEntries - 1)));
-        if(ItemsScrolled == clamped)
+        int clamped = Mathf.Clamp(ItemsScrolled + difference, 0, Mathf.Max(0, MenuItems.Count - (VisibleEntries - 1)));
+        if (ItemsScrolled == clamped)
         {
             difference = 0;
         }
-        else if(clamped != ItemsScrolled + difference)
+        else if (clamped != ItemsScrolled + difference)
         {
             difference = clamped - ItemsScrolled;
         }
@@ -121,11 +121,13 @@ public class PopulatingMenuManager : MenuItemManager
             }
         }
         MenuItems.RemoveAt(index);
-        if(MenuItems.Count == 0)
+        if (MenuItems.Count == 0)
         {
+            Arrow.SetParent(transform);
+            Arrow.anchoredPosition = ArrowValues;
             return;
         }
-        if(CurrentIndex >= index)
+        if (CurrentIndex >= index)
         {
             CurrentIndex--;
         }

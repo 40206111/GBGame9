@@ -50,12 +50,12 @@ public class InventoryMenuManager : PopulatingMenuManager
         switch (feedback)
         {
             case eLittleFeedback.Wear:
-
                 EquiptmentSlot slot = ((ItemMenuItem)MenuItems[CurrentIndex]).Slot;
+                string userFeedback = $"Equipped {slot.Equiptment.Name}.";
                 Debug.Log($"Need to wear {slot.Equiptment.Name}");
                 eItemType type = slot.Equiptment.ItemType;
                 ItemDetails returnedItem = PlayerData.GetChickenData(PlayerData.ActiveChicken).EquippedItems.EquipItem(slot.SubtractItem(), type);
-                if(slot.Equiptment == null)
+                if (slot.Equiptment == null)
                 {
                     MenuItemBase toDestroy = MenuItems[CurrentIndex];
                     RemoveMenuItem(toDestroy);
@@ -64,10 +64,10 @@ public class InventoryMenuManager : PopulatingMenuManager
                 if (returnedItem != null)
                 {
                     ItemMenuItem match = null;
-                    foreach(MenuItemBase mi in MenuItems)
+                    foreach (MenuItemBase mi in MenuItems)
                     {
                         ItemMenuItem cast = (ItemMenuItem)mi;
-                        if(cast.Slot.Equiptment == returnedItem)
+                        if (cast.Slot.Equiptment == returnedItem)
                         {
                             match = cast;
                             break;
@@ -86,12 +86,26 @@ public class InventoryMenuManager : PopulatingMenuManager
                         imi.transform.localPosition += (Vector3.down * (InitialGap + EntryHeight * MenuItems.Count));
                         MenuItems.Add(imi);
                     }
+                    if (MenuItems.Count == 1)
+                    {
+                        ChangeSelectedMenuItem(1);
+                    }
+                    userFeedback = $"Took off {returnedItem.Name}. " + userFeedback;
                 }
-
+                StartCoroutine(PrintDialogueAndRestoreInfo(userFeedback));
                 break;
             case eLittleFeedback.Data:
                 Debug.Log($"Need to give info on {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
                 break;
+        }
+    }
+
+    protected IEnumerator PrintDialogueAndRestoreInfo(string dialogue)
+    {
+        yield return StartCoroutine(DialogueBoxControl.Instance.PrintTextAndWait(dialogue, waitInputStayOpen: true));
+        if (MenuItems.Count > 0)
+        {
+            DialogueBoxControl.Instance.PrintText(((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.ToString(), timePerChar: 0);
         }
     }
 }

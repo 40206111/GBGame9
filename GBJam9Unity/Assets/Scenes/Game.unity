@@ -63122,10 +63122,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3299656831663340051, guid: 98e87da02ab18f544a9eaf2e06865b93, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3299656831663340054, guid: 98e87da02ab18f544a9eaf2e06865b93, type: 3}
       propertyPath: m_Camera
       value: 

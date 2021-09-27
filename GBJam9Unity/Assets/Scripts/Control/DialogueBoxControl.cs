@@ -36,7 +36,7 @@ public class DialogueBoxControl : MonoBehaviour
     [SerializeField]
     Sprite EmptyPortrait;
     [SerializeField]
-    List<Sprite> Portraits = new List<Sprite> ();
+    List<Sprite> Portraits = new List<Sprite>();
 
     public bool RequiresInput = true;
     TextBoxFiller Filler;
@@ -80,7 +80,7 @@ public class DialogueBoxControl : MonoBehaviour
     }
 
 
-    public void PrintTextWithCharacter(string text,eSpeakingCharacter character, bool leftSide, float timePerChar = -1.0f,  bool closeAfterText = false)
+    public void PrintTextWithCharacter(string text, eSpeakingCharacter character, bool leftSide, float timePerChar = -1.0f, bool closeAfterText = false)
     {
         if (character == eSpeakingCharacter.None)
         {
@@ -90,29 +90,29 @@ public class DialogueBoxControl : MonoBehaviour
         else
         {
             LeftPortrait.sprite = leftSide ? Portraits[(int)character - 1] : EmptyPortrait;
-            RightPortrait.sprite = !leftSide ? Portraits[(int)character -1] : EmptyPortrait;
+            RightPortrait.sprite = !leftSide ? Portraits[(int)character - 1] : EmptyPortrait;
         }
         StartCoroutine(PrintTextAndWait(text, timePerChar, closeAfterText));
     }
 
-    public void PrintText(string text, float timePerChar = -1.0f, bool closeAfterText = false)
+    public void PrintText(string text, float timePerChar = -1.0f, bool closeAfterText = false, bool waitInputStayOpen = false)
     {
-        StartCoroutine(PrintTextAndWait(text,timePerChar, closeAfterText));
+        StartCoroutine(PrintTextAndWait(text, timePerChar, closeAfterText, waitInputStayOpen));
     }
 
-    public IEnumerator PrintTextAndWait(string text, float timePerChar = -1.0f, bool closeAfterText = false)
+    public IEnumerator PrintTextAndWait(string text, float timePerChar = -1.0f, bool closeAfterText = false, bool waitInputStayOpen = false)
     {
         if (!IsShowing)
         {
             Display(true);
         }
-        if (GameManager.Instance.IsActiveInputTarget(Filler.GetInstanceID()))
+        if (!GameManager.Instance.IsActiveInputTarget(Filler.GetInstanceID()))
         {
-            Debug.LogWarning("Too many dialogue calls!");
-            yield break;
+            //Debug.LogWarning("Too many dialogue calls!");
+            //yield break;
+            GameManager.Instance.AddInputTarget(Filler.GetInstanceID());
         }
-        GameManager.Instance.AddInputTarget(Filler.GetInstanceID());
-        if(timePerChar!= -1.0f)
+        if (timePerChar != -1.0f)
         {
             SetTimePerChar(timePerChar);
         }
@@ -122,11 +122,14 @@ public class DialogueBoxControl : MonoBehaviour
             yield return StartCoroutine(Filler.WaitForUser());
             Display(false);
         }
+        else if (waitInputStayOpen)
+        {
+            yield return StartCoroutine(Filler.WaitForUser());
+        }
         if (timePerChar != -1.0f)
         {
             ResetSpeed();
         }
-        GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
 
         if (TheQueue.Count != 0)
         {
@@ -137,6 +140,7 @@ public class DialogueBoxControl : MonoBehaviour
         {
             LeftPortrait.sprite = EmptyPortrait;
             RightPortrait.sprite = EmptyPortrait;
+            GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
         }
 
     }

@@ -7,7 +7,7 @@ public class EquiptmentSlot
 
     public EquiptmentSlot AddItem(ItemDetails item)
     {
-        EquiptmentSlot outItem = null;
+        EquiptmentSlot outItem = new EquiptmentSlot();
         if(Equiptment == item)
         {
             if (RequiredType != eItemType.none)

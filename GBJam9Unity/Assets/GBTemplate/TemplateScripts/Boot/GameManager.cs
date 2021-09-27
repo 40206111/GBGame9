@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public TransitionController TransController;
 
     List<int> InputTargets = new List<int>();
+    Queue<int> FutureTargets = new Queue<int>();
 
     public ShopControl Shop;
 
@@ -209,6 +210,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        while(FutureTargets.Count > 0)
+        {
+            InputTargets.Add(FutureTargets.Dequeue());
+        }
+    }
 
     void PowerOff()
     {
@@ -224,7 +232,7 @@ public class GameManager : MonoBehaviour
 
     public void AddInputTarget(int id)
     {
-        InputTargets.Add(id);
+        FutureTargets.Enqueue(id);
         //StartCoroutine(DelayedAddInputTarget(id));
     }
 

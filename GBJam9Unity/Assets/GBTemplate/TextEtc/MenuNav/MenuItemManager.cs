@@ -73,13 +73,19 @@ public class MenuItemManager : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+        if (InputKey == null)
+        {
+            GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+        }
         JustHighlight(CurrentIndex);
     }
 
     protected virtual void OnDisable()
     {
-        GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
+        if (InputKey == null)
+        {
+            GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
+        }
     }
 
     public virtual void CleanUp()

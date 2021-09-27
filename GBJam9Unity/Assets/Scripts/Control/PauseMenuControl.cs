@@ -22,6 +22,13 @@ public class PauseMenuControl : MonoBehaviour
     public void OpenPauseMenu()
     {
         MenuContainer.SetActive(true);
+        GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
+    }
+
+    public void ClosePauseMenu()
+    {
+        MenuContainer.SetActive(false);
+        GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
     }
 
     private void Update()
@@ -33,11 +40,11 @@ public class PauseMenuControl : MonoBehaviour
                 OpenPauseMenu();
             }
         }
-        else if (MenuContainer.activeInHierarchy && GameManager.Instance.IsActiveInputTarget(MenuContainer.GetInstanceID()))
+        else if (MenuContainer.activeInHierarchy && GameManager.Instance.IsActiveInputTarget(gameObject.GetInstanceID()))
         {
             if (Input.GetButtonDown("BButton") || Input.GetButtonDown("Start"))
             {
-                MenuContainer.SetActive(false);
+                ClosePauseMenu();
             }
         }
     }
