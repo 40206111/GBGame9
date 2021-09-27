@@ -96,6 +96,7 @@ public class InventoryMenuManager : PopulatingMenuManager
                 break;
             case eLittleFeedback.Data:
                 Debug.Log($"Need to give info on {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
+                StartCoroutine(PrintDialogueAndRestoreInfo(((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.FlavourText));
                 break;
         }
     }

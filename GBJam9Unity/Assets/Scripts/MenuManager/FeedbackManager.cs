@@ -44,6 +44,7 @@ public class FeedbackManager : MenuItemManager
         {
             gameObject.SetActive(true);
         }
+        CurrentIndex = 0;
         CurrentCallback = callback;
         GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
         JustHighlight(CurrentIndex);
