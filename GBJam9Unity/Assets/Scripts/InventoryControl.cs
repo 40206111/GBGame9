@@ -24,6 +24,10 @@ public class InventoryControl : MonoBehaviour
         {
             return;
         }
+        if (Input.GetButtonDown("BButton"))
+        {
+            HideInventory();
+        }
     }
 
     public void ShowInventory()
@@ -37,5 +41,6 @@ public class InventoryControl : MonoBehaviour
     {
         GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
         Holder.SetActive(false);
+        DialogueBoxControl.Instance.Display(false);
     }
 }
