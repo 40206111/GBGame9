@@ -1,6 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum eSpeakingCharacter
+{
+    None,
+    Melee,
+    Range,
+    Mage
+}
 
 public class DialogueBoxControl : MonoBehaviour
 {
@@ -19,10 +28,23 @@ public class DialogueBoxControl : MonoBehaviour
         IsShowing = Filler.gameObject.activeInHierarchy;
     }
 
+    [SerializeField]
+    Image LeftPortrait;
+    [SerializeField]
+    Image RightPortrait;
+
+    [SerializeField]
+    Sprite EmptyPortrait;
+    [SerializeField]
+    List<Sprite> Portraits = new List<Sprite> ();
+
     public bool RequiresInput = true;
     TextBoxFiller Filler;
     bool IsShowing = false;
 
+    Queue<DialogueDetails> TheQueue = new Queue<DialogueDetails>();
+
+    public int QueueCount => TheQueue.Count;
 
     public void ResetSpeed()
     {
@@ -43,6 +65,34 @@ public class DialogueBoxControl : MonoBehaviour
         {
             GetComponent<Canvas>().worldCamera = CameraFollow.ActiveCamera;
         }
+    }
+
+    public void QueueDialogue(string text, eSpeakingCharacter character, bool leftSide, float timePerChar = -1.0f, bool closeAfterText = false)
+    {
+        var dialogue = new DialogueDetails(text, character, leftSide, timePerChar, closeAfterText);
+        TheQueue.Enqueue(dialogue);
+
+        if (!IsShowing)
+        {
+            var next = TheQueue.Dequeue();
+            PrintTextWithCharacter(next.Text, next.Portrait, next.LeftSide, next.TimePerChar, next.CloseAferText);
+        }
+    }
+
+
+    public void PrintTextWithCharacter(string text,eSpeakingCharacter character, bool leftSide, float timePerChar = -1.0f,  bool closeAfterText = false)
+    {
+        if (character == eSpeakingCharacter.None)
+        {
+            LeftPortrait.sprite = EmptyPortrait;
+            RightPortrait.sprite = EmptyPortrait;
+        }
+        else
+        {
+            LeftPortrait.sprite = leftSide ? Portraits[(int)character - 1] : EmptyPortrait;
+            RightPortrait.sprite = !leftSide ? Portraits[(int)character -1] : EmptyPortrait;
+        }
+        StartCoroutine(PrintTextAndWait(text, timePerChar, closeAfterText));
     }
 
     public void PrintText(string text, float timePerChar = -1.0f, bool closeAfterText = false)
@@ -77,5 +127,17 @@ public class DialogueBoxControl : MonoBehaviour
             ResetSpeed();
         }
         GameManager.Instance.RemoveInputTarget(Filler.GetInstanceID());
+
+        if (TheQueue.Count != 0)
+        {
+            var next = TheQueue.Dequeue();
+            PrintTextWithCharacter(next.Text, next.Portrait, next.LeftSide, next.TimePerChar, next.CloseAferText);
+        }
+        else
+        {
+            LeftPortrait.sprite = EmptyPortrait;
+            RightPortrait.sprite = EmptyPortrait;
+        }
+
     }
 }

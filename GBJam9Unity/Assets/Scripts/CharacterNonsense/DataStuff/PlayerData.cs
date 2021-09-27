@@ -4,9 +4,19 @@ using UnityEngine;
 
 public enum eChickenClass { none = -1, melee, mage, ranger }
 
+public enum eKeyEvents
+{
+    None = 1 << 0,
+    WokenUp = 1 << 1,
+    MetMage = 1 << 2,
+    MetRanger = 1 << 3,
+}
+
 public static class PlayerData
 {
     public static bool DataLoaded = false;
+
+    public static eKeyEvents KeyEvents;
 
     public static Inventory Inventory;
     public static ChickenData MeleeChicken;
