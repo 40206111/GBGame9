@@ -35,7 +35,6 @@ public class InventoryMenuManager : PopulatingMenuManager
 
     protected virtual void UpdateInventoryVisuals()
     {
-
         ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
         Sprite sprite = imi.Slot.Equiptment.ItemImage;
         if (sprite == null)
@@ -52,8 +51,43 @@ public class InventoryMenuManager : PopulatingMenuManager
         {
             case eLittleFeedback.Wear:
 
-                Debug.Log($"Need to wear {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
-                //PlayerData.GetChickenData(PlayerData.ActiveChicken).EquippedItems.EquipItem()
+                EquiptmentSlot slot = ((ItemMenuItem)MenuItems[CurrentIndex]).Slot;
+                Debug.Log($"Need to wear {slot.Equiptment.Name}");
+                eItemType type = slot.Equiptment.ItemType;
+                ItemDetails returnedItem = PlayerData.GetChickenData(PlayerData.ActiveChicken).EquippedItems.EquipItem(slot.SubtractItem(), type);
+                if(slot.Equiptment == null)
+                {
+                    MenuItemBase toDestroy = MenuItems[CurrentIndex];
+                    RemoveMenuItem(toDestroy);
+                    Destroy(toDestroy.gameObject);
+                }
+                if (returnedItem != null)
+                {
+                    ItemMenuItem match = null;
+                    foreach(MenuItemBase mi in MenuItems)
+                    {
+                        ItemMenuItem cast = (ItemMenuItem)mi;
+                        if(cast.Slot.Equiptment == returnedItem)
+                        {
+                            match = cast;
+                            break;
+                        }
+                    }
+                    if (match != null)
+                    {
+                        match.AddToCount();
+                    }
+                    else
+                    {
+                        ItemMenuItem imi = Instantiate(LootMenuItemPrefab, ItemHolder).GetComponent<ItemMenuItem>();
+                        EquiptmentSlot newSlot = new EquiptmentSlot();
+                        newSlot.AddItem(returnedItem);
+                        imi.SetItem(newSlot);
+                        imi.transform.localPosition += (Vector3.down * (InitialGap + EntryHeight * MenuItems.Count));
+                        MenuItems.Add(imi);
+                    }
+                }
+
                 break;
             case eLittleFeedback.Data:
                 Debug.Log($"Need to give info on {((ItemMenuItem)MenuItems[CurrentIndex]).Slot.Equiptment.Name}");
