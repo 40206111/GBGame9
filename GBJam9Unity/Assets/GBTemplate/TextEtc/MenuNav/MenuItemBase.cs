@@ -37,4 +37,6 @@ public abstract class MenuItemBase : MonoBehaviour
             }
         }
     }
+
+    public virtual string CurrentText { get { return Text.text; } }
 }

@@ -51,7 +51,7 @@ public class ItemMenuItem : MenuItemBase
 
     public void RefreshNameText()
     {
-        ItemNameText.text = Slot.Equiptment.name;
+        ItemNameText.text = Slot.Equiptment.Name;
     }
 
     public void RefreshNumberText()

@@ -6,11 +6,13 @@ public class LootItemManager : PopulatingMenuManager
 {
     protected static LootItemManager _instance;
     public static LootItemManager Instance { get { return _instance; } }
-    private void Awake()
+    protected void Awake()
     {
         _instance = this;
         gameObject.SetActive(false);
     }
+
+    protected Lootable CurrentLootable = null;
 
     protected override void Update()
     {
@@ -31,18 +33,18 @@ public class LootItemManager : PopulatingMenuManager
 
     private void TransferItemToInventory()
     {
-        ItemMenuItem imi = (ItemMenuItem)MenuItems[CurrentIndex];
-        PlayerData.Inventory.AddItem(imi.Slot);
-        RemoveMenuItem(imi);
-        Destroy(imi.gameObject);
+        MenuItemBase mi = MenuItems[CurrentIndex];
+        PlayerData.Inventory.AddItem(CurrentLootable.TakeItem(mi.CurrentText));
+        RemoveMenuItem(mi);
+        Destroy(mi.gameObject);
     }
 
     public void Display(Lootable lootable = null)
     {
         CleanUp();
-        if(lootable?.GetItems().Count == 0)
+        if (lootable?.GetItems().Count == 0)
         {
-            DialogueBoxControl.Instance.PrintText("Nothing left here.");
+            DialogueBoxControl.Instance.PrintText("Nothing left here.", closeAfterText: true);
             return;
         }
         gameObject.SetActive(lootable != null);
@@ -61,6 +63,7 @@ public class LootItemManager : PopulatingMenuManager
                 GameManager.Instance.RemoveInputTarget(gameObject.GetInstanceID());
             }
         }
+        CurrentLootable = lootable;
     }
 
     public override void RemoveMenuItem(MenuItemBase menuItem)
