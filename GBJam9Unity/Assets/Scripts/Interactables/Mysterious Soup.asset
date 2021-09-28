@@ -20,6 +20,6 @@ MonoBehaviour:
   Energy: 0
   Name: Mysterious Soup
   ItemType: 6
-  FlavourText: Spicy
+  FlavourText: Looks gross.
   ItemImage: {fileID: 0}
   Price: 0

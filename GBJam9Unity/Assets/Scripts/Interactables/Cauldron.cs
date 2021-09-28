@@ -19,15 +19,18 @@ public class Cauldron : MonoBehaviour, IInteractable
         Animator.SetTrigger("Cut");
         BoxCollder.enabled = false;
         PlayerData.KeyEvents |= eKeyEvents.MetMage;
-        StartCoroutine(TalkToMage());
+
+        PlayerData.Inventory.AddItem(WhatsInThePot);
+
+        TalkToMage();
         PlayerData.SetChickenAvailable(eChickenClass.mage, true);
     }
 
-    IEnumerator TalkToMage()
-    {
-        yield return new WaitForSeconds(1.0f);
 
-        DialogueBoxControl.Instance.PrintTextWithCharacter("Did you just break my cauldron?! Why would you do that?!", eSpeakingCharacter.Mage, leftSide: true, closeAfterText: true);
+    void TalkToMage()
+    {
+        DialogueBoxControl.Instance.PrintTextWithCharacter($"Recieved {WhatsInThePot.Name}.", eSpeakingCharacter.None, leftSide: false, closeAfterText: true);
+        DialogueBoxControl.Instance.QueueDialogue("Did you just break my cauldron?! Why would you do that?!", eSpeakingCharacter.Mage, leftSide: true, closeAfterText: true);
         DialogueBoxControl.Instance.QueueDialogue("...I... uh...", eSpeakingCharacter.Melee, leftSide: false, closeAfterText: true);
         DialogueBoxControl.Instance.QueueDialogue("Just so I'd help you???? Well you're darn right I'm coming with you now! I'll be by your side until you have found me a brand new cauldron!", eSpeakingCharacter.Mage, leftSide: true, closeAfterText: true);
         DialogueBoxControl.Instance.QueueDialogue("You don't have to...", eSpeakingCharacter.Melee, leftSide: false, closeAfterText: true);
