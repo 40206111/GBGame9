@@ -34,10 +34,10 @@ public class Inventory
 
     public void AddItem(ItemDetails item)
     {
-        if (item.ItemType == eItemType.chestPiece)
-        {
-            PlayerData.MeleeChicken.EquippedItems.EquipItem(item, item.ItemType);
-        }
+        //if (item.ItemType == eItemType.chestPiece)
+        //{
+        //    PlayerData.MeleeChicken.EquippedItems.EquipItem(item, item.ItemType);
+        //}
 
         EquiptmentSlot es = PocketItems.Find(x => x.Equiptment == null);
         if (es != null)
@@ -53,10 +53,10 @@ public class Inventory
 
     public void AddItem(EquiptmentSlot slot)
     {
-        if (slot.Equiptment.ItemType == eItemType.chestPiece)
-        {
-            PlayerData.MeleeChicken.EquippedItems.EquipItem(slot.Equiptment, slot.Equiptment.ItemType);
-        }
+        //if (slot.Equiptment.ItemType == eItemType.chestPiece)
+        //{
+        //    PlayerData.MeleeChicken.EquippedItems.EquipItem(slot.Equiptment, slot.Equiptment.ItemType);
+        //}
         EquiptmentSlot currentSlot = PocketItems.Find(x => x.Equiptment == slot.Equiptment);
 
         if(currentSlot != null)

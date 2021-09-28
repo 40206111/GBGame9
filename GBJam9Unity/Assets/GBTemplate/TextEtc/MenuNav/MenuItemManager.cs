@@ -18,6 +18,7 @@ public class MenuItemManager : MonoBehaviour
     protected GameObject InputKey = null;
     [SerializeField]
     protected string InputAxis = "Vertical";
+    bool DontHighlightInOnEnable = true;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -27,6 +28,7 @@ public class MenuItemManager : MonoBehaviour
         {
             JustHighlight(0);
         }
+        DontHighlightInOnEnable = false;
     }
 
     protected virtual void JustHighlight(int index)
@@ -77,7 +79,10 @@ public class MenuItemManager : MonoBehaviour
         {
             GameManager.Instance.AddInputTarget(gameObject.GetInstanceID());
         }
-        JustHighlight(CurrentIndex);
+        if (!DontHighlightInOnEnable)
+        {
+            JustHighlight(CurrentIndex);
+        }
     }
 
     protected virtual void OnDisable()

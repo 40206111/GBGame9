@@ -21,6 +21,7 @@ public class QuickTest : MonoBehaviour
         TBF = GetComponentInChildren<TextBoxFiller>();
 
         ChickenData data = PlayerData.GetChickenData(eChickenClass.melee);
+        Debug.LogWarning("Delete me from " + gameObject.name + "!");
 
     }
 
