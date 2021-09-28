@@ -11,6 +11,7 @@ public class EntityMover : MonoBehaviour
     Vector2 TravelDirection;
     Vector2Int FacingDirection = Vector2Int.down;
     public Vector2Int GetFacingDirection { get { return FacingDirection; } }
+    [SerializeField]
     float MaxSpeed = 2.0f;
     float Acceleration = 4.0f;
     float Deceleration = 4.0f;
