@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseMenuMI : MenuItemBase
+public class SettingsMI : MenuItemBase
 {
     public override bool PerformAction()
     {
-        PauseMenuControl.Instance.ClosePauseMenu();
+        SettingsControl.Instance.ShowSettings();
         return true;
     }
 }
