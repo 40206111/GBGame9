@@ -31,6 +31,8 @@ public class LoadThingsForGame : MonoBehaviour
             DialogueBoxControl.Instance.QueueDialogue("And why am I even TALKING about PLANTS?! I'm away from my post!", eSpeakingCharacter.Melee, leftSide: true, closeAfterText: true);
             DialogueBoxControl.Instance.QueueDialogue("  \"You have the duty of guarding the essence of our very lives. The duty of protecting our magical origins is a high honour, and very important! So don't you dare leave until you are told you can leave.\"", eSpeakingCharacter.Melee, leftSide: true, closeAfterText: true);
             DialogueBoxControl.Instance.QueueDialogue("I've heard that nearly every day on the job... She'll be so disappointed...", eSpeakingCharacter.Melee, leftSide: true, closeAfterText: true);
+            DialogueBoxControl.Instance.QueueDialogue("...", eSpeakingCharacter.Melee, leftSide: true, closeAfterText: true);
+            DialogueBoxControl.Instance.QueueDialogue("Oh, a nest! Wonder if it contains anything interesting...", eSpeakingCharacter.Melee, leftSide: true, closeAfterText: true);
         }
     }
 
