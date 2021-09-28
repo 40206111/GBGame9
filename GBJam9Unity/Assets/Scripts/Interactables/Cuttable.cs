@@ -18,7 +18,7 @@ public class Cuttable : MonoBehaviour, IInteractable
             animator.SetTrigger("Cut");
             BoxCollider.enabled = false;
 
-            int random = Random.Range(0, 2);
+            int random = Random.Range(0, 3);
             if (random != 0)
             {
                 string addS = random == 1 ? "" : "s";

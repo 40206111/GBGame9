@@ -51,6 +51,11 @@ public class InventoryMenuManager : PopulatingMenuManager
         {
             case eLittleFeedback.Wear:
                 EquiptmentSlot slot = ((ItemMenuItem)MenuItems[CurrentIndex]).Slot;
+                if(slot.Equiptment.ItemType == eItemType.consumable)
+                {
+                    StartCoroutine(PrintDialogueAndRestoreInfo("You can't wear this."));
+                    break;
+                }
                 string userFeedback = $"Equipped {slot.Equiptment.Name}.";
                 Debug.Log($"Need to wear {slot.Equiptment.Name}");
                 eItemType type = slot.Equiptment.ItemType;

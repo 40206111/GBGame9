@@ -61,7 +61,7 @@ public class EquiptmentLayout
             eItemType.footWear => FootSlot,
             eItemType.weapon => WeaponSlot,
             eItemType.trinket => TrinketSlots[Mathf.Clamp(trinketSlot, 0, TrinketSlots.Count)],
-            _ => HeadSlot,
+            _ => null,
         };
     }
 
