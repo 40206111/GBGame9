@@ -31,14 +31,17 @@ public class PlayerDataLoader : MonoBehaviour
 
         PlayerData.ConstructClasses();
 
-        SetStats(PlayerData.GetChickenData(eChickenClass.melee));
-        SetStats(PlayerData.GetChickenData(eChickenClass.mage));
-        SetStats(PlayerData.GetChickenData(eChickenClass.ranger));
+        SetStats(PlayerData.GetChickenData(eChickenClass.melee, true));
+        SetStats(PlayerData.GetChickenData(eChickenClass.mage, true));
+        SetStats(PlayerData.GetChickenData(eChickenClass.ranger, true));
     }
 
     private void SetStats(ChickenData chicken)
     {
         chicken.BaseStats = BaseStats.Find(x => x.ChickenClass == chicken.Class).Stats;
         chicken.StatGrowth = (StatGrowth)GrowthStats.Find(x => x.ChickenClass == chicken.Class).Stats;
+
+        chicken.HealToFull();
+        chicken.StaminaToFull();
     }
 }
